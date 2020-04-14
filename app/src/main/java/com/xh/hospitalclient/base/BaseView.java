@@ -1,4 +1,4 @@
-package com.xh.mvp;
+package com.xh.hospitalclient.base;
 
 public interface BaseView {
     void showLoading();
