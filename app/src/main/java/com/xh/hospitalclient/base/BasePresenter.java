@@ -8,14 +8,14 @@ import java.lang.ref.WeakReference;
 public abstract class BasePresenter<V>{
     protected WeakReference<V> mViewRef;
 
-    private LifecycleProvider<ActivityEvent> provider;
+    private LifecycleProvider<ActivityEvent> mProvider;
 
     public BasePresenter(LifecycleProvider<ActivityEvent> provider) {
-        this.provider = provider;
+        this.mProvider = provider;
     }
 
     public LifecycleProvider<ActivityEvent> getProvider() {
-        return provider;
+        return mProvider;
     }
 
     public void onAttach(V view) {

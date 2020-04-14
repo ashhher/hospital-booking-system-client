@@ -3,7 +3,6 @@ package com.xh.hospitalclient.net;
 import android.util.Log;
 
 import com.google.gson.JsonParseException;
-import com.xh.hospitalclient.utils.ToastUtil;
 
 import org.json.JSONException;
 

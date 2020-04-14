@@ -1,4 +1,4 @@
-package com.xh.hospitalclient.utils;
+package com.xh.hospitalclient.widget;
 
 import android.widget.Toast;
 

@@ -5,7 +5,7 @@ import android.view.KeyEvent;
 
 
 import com.trello.rxlifecycle.components.support.RxAppCompatActivity;
-import com.xh.hospitalclient.utils.ToastUtil;
+import com.xh.hospitalclient.widget.ToastUtil;
 
 public abstract class BaseActivity<V, T extends BasePresenter<V>>
         extends RxAppCompatActivity

@@ -7,7 +7,8 @@ import com.franmontiel.persistentcookiejar.PersistentCookieJar;
 import com.franmontiel.persistentcookiejar.cache.SetCookieCache;
 import com.franmontiel.persistentcookiejar.persistence.SharedPrefsCookiePersistor;
 import com.xh.hospitalclient.MyApplication;
-import com.xh.hospitalclient.constants.Constants;
+import com.xh.hospitalclient.config.APIService;
+import com.xh.hospitalclient.config.Constants;
 
 import java.io.File;
 import java.util.concurrent.TimeUnit;
@@ -22,7 +23,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RetrofitHelper {
 
     private static volatile RetrofitHelper instance;
-    private RetrofitService retrofitService;
+    private APIService mApiService;
 
     //单例
     public static RetrofitHelper getInstance() {
@@ -61,19 +62,19 @@ public class RetrofitHelper {
         }).setLevel(HttpLoggingInterceptor.Level.BODY));
         builder.cache(cache);
         //----------------------------基本设置------------------------------------------------------
-        Retrofit retrofit = new Retrofit.Builder()
+        Retrofit mRetrofit = new Retrofit.Builder()
                 .client(builder.build())
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .baseUrl(Constants.BASE_URL)
                 .build();
-        retrofitService = retrofit.create(RetrofitService.class);
+        mApiService = mRetrofit.create(APIService.class);
     }
 
     /**
      * @return 获取service实例
      */
-    public RetrofitService getRetrofitService() {
-        return retrofitService;
+    public APIService getRetrofitService() {
+        return mApiService;
     }
 }

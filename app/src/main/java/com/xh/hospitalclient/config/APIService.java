@@ -1,13 +1,13 @@
-package com.xh.hospitalclient.net;
+package com.xh.hospitalclient.config;
 
-import com.xh.hospitalclient.Test.TestBean;
-import com.xh.hospitalclient.constants.Constants;
+import com.xh.hospitalclient.model.entities.TestBean;
+import com.xh.hospitalclient.config.Constants;
 
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 import rx.Observable;
 
-public interface RetrofitService {
+public interface APIService {
 
     /**
      * Rx方式

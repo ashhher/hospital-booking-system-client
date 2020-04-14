@@ -1,4 +1,4 @@
-package com.xh.hospitalclient.Test;
+package com.xh.hospitalclient.module.Test;
 
 
 import android.util.Log;
@@ -6,6 +6,8 @@ import android.util.Log;
 import com.trello.rxlifecycle.LifecycleProvider;
 import com.trello.rxlifecycle.android.ActivityEvent;
 import com.xh.hospitalclient.base.BasePresenter;
+import com.xh.hospitalclient.model.TestModel;
+import com.xh.hospitalclient.model.entities.TestBean;
 import com.xh.hospitalclient.net.RetrofitSubscriber;
 
 import rx.android.schedulers.AndroidSchedulers;

@@ -1,4 +1,4 @@
-package com.xh.hospitalclient;
+package com.xh.hospitalclient.module.Test;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -6,17 +6,18 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.xh.hospitalclient.Test.TestBean;
-import com.xh.hospitalclient.Test.TestPresenter;
-import com.xh.hospitalclient.Test.TestView;
+import com.xh.hospitalclient.R;
+import com.xh.hospitalclient.model.entities.TestBean;
+import com.xh.hospitalclient.module.Test.TestPresenter;
+import com.xh.hospitalclient.module.Test.TestView;
 import com.xh.hospitalclient.base.BaseActivity;
 
 import butterknife.ButterKnife;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class MainActivity extends BaseActivity<TestView,TestPresenter> implements TestView {
-    private static final String TAG = "MainActivity";
+public class TestActivity extends BaseActivity<TestView,TestPresenter> implements TestView {
+    private static final String TAG = "TestActivity";
 
     @BindView(R.id.btn)
     public Button bt;

@@ -1,4 +1,4 @@
-package com.xh.hospitalclient.Test;
+package com.xh.hospitalclient.model.entities;
 
 public class TestBean {
     private String id;

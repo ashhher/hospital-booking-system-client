@@ -1,4 +1,4 @@
-package com.xh.hospitalclient.constants;
+package com.xh.hospitalclient.config;
 
 public class Constants {
     public static final String BASE_URL = "http://192.168.31.68:8080/hospitalServer/";
