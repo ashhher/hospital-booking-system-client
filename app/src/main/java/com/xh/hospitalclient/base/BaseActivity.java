@@ -14,9 +14,9 @@ public abstract class BaseActivity<V, T extends BasePresenter<V>>
     protected T mPresenter;
 
     protected abstract int getLayoutId();
-    protected abstract void initView();
-    protected abstract void initData();
-    protected abstract void initEvent();
+//    protected abstract void initView();
+//    protected abstract void initData();
+//    protected abstract void initEvent();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -24,9 +24,9 @@ public abstract class BaseActivity<V, T extends BasePresenter<V>>
         mPresenter = createPresenter();
         mPresenter.onAttach((V)this);
         setContentView(getLayoutId());
-        initView();
-        initData();
-        initEvent();
+//        initView();
+//        initData();
+//        initEvent();
     }
 
     protected abstract T createPresenter();

@@ -36,21 +36,6 @@ public class TestActivity extends BaseActivity<TestView,TestPresenter> implement
     }
 
     @Override
-    protected void initView() {
-
-    }
-
-    @Override
-    protected void initData() {
-
-    }
-
-    @Override
-    protected void initEvent() {
-
-    }
-
-    @Override
     protected TestPresenter createPresenter() {
         return new TestPresenter(this);
     }
