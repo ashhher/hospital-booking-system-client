@@ -6,10 +6,12 @@ import android.support.design.widget.TextInputLayout;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.xh.hospitalclient.R;
 import com.xh.hospitalclient.base.BaseActivity;
 import com.xh.hospitalclient.base.BasePresenter;
+import com.xh.hospitalclient.module.Login.Register.RegisterActivity;
 import com.xh.hospitalclient.module.Test.TestActivity;
 import com.xh.hospitalclient.widget.ToastUtil;
 
@@ -26,6 +28,8 @@ public class LoginActivity extends BaseActivity<LoginContract.LoginView, LoginPr
     public TextInputLayout til_password;
     @BindView(R.id.btn_login)
     public Button btn_login;
+    @BindView(R.id.tv_register)
+    public TextView tv_register;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -43,7 +47,7 @@ public class LoginActivity extends BaseActivity<LoginContract.LoginView, LoginPr
         return new LoginPresenterImpl(this);
     }
 
-    @OnClick(R.id.btn_login)
+    @OnClick({R.id.btn_login,R.id.tv_register})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_login:
@@ -57,6 +61,9 @@ public class LoginActivity extends BaseActivity<LoginContract.LoginView, LoginPr
                     mPresenter.login(username,password);
                 }
                 break;
+            case R.id.tv_register:
+                toRegisterAvtivity();
+
         }
     }
 
@@ -94,7 +101,12 @@ public class LoginActivity extends BaseActivity<LoginContract.LoginView, LoginPr
 
     @Override
     public void toMainActivity() {
-        Intent it_login_to_register = new Intent(this, TestActivity.class);
+        Intent it_login_to_main = new Intent(this, TestActivity.class);
+        startActivity(it_login_to_main);
+    }
+
+    public void toRegisterAvtivity() {
+        Intent it_login_to_register = new Intent(this, RegisterActivity.class);
         startActivity(it_login_to_register);
     }
 }

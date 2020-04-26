@@ -14,7 +14,7 @@ public interface LoginContract {
         Observable<UserBean> login(String username, String password);
     }
 
-    interface  LoginView extends BaseView {
+    interface LoginView extends BaseView {
         void showLogin(String info);
         void toMainActivity();
     }

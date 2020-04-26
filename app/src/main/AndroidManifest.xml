@@ -21,8 +21,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".module.Test.TestActivity">
-        </activity>
+        <activity android:name=".module.Test.TestActivity"/>
+        <activity android:name=".module.Login.Register.RegisterActivity"/>
+
     </application>
 
 </manifest>

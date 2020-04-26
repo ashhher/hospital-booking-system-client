@@ -5,6 +5,7 @@ public class Constants {
     public static class UrlOrigin {
         public static final String get_info = "user/getUser";
         public static final String login = "user/Login";
+        public static final String register = "user/Register";
 
     }
 }
