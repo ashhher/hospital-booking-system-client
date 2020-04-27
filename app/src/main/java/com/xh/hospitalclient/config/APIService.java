@@ -1,14 +1,14 @@
 package com.xh.hospitalclient.config;
 
-import com.xh.hospitalclient.model.entities.TestBean;
-import com.xh.hospitalclient.config.Constants;
-import com.xh.hospitalclient.model.entities.UserBean;
+import com.xh.hospitalclient.model.TestBean;
+import com.xh.hospitalclient.model.UserBean;
 
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
 import rx.Observable;
 
+//网络请求API
 public interface APIService {
 
     @GET(Constants.UrlOrigin.get_info)

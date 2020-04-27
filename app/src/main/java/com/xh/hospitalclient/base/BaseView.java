@@ -3,5 +3,7 @@ package com.xh.hospitalclient.base;
 public interface BaseView {
     void showLoading();
     void hideLoading();
-    void showError();
+    void showError(String msg);
+    void showSuccess(String msg);
+
 }

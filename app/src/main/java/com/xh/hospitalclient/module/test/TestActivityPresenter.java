@@ -1,23 +1,22 @@
-package com.xh.hospitalclient.module.Test;
+package com.xh.hospitalclient.module.test;
 
 
 import android.util.Log;
 
 import com.trello.rxlifecycle.LifecycleProvider;
 import com.trello.rxlifecycle.android.ActivityEvent;
-import com.xh.hospitalclient.base.BasePresenter;
-import com.xh.hospitalclient.model.TestModel;
-import com.xh.hospitalclient.model.entities.TestBean;
+import com.xh.hospitalclient.base.BaseActivityPresenter;
+import com.xh.hospitalclient.model.TestBean;
 import com.xh.hospitalclient.net.RetrofitSubscriber;
 
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
-public class TestPresenter extends BasePresenter<TestView> {
-    private static final String TAG = "TestPresenter";
+public class TestActivityPresenter extends BaseActivityPresenter<TestView> {
+    private static final String TAG = "TestActivityPresenter";
     private TestModel testModel;
 
-    public TestPresenter(LifecycleProvider<ActivityEvent> provider) {
+    public TestActivityPresenter(LifecycleProvider<ActivityEvent> provider) {
         super(provider);
         testModel = TestModel.getInstance();
     }

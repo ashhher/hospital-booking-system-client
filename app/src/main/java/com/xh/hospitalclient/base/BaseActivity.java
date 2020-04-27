@@ -3,30 +3,32 @@ package com.xh.hospitalclient.base;
 import android.os.Bundle;
 import android.view.KeyEvent;
 
-
 import com.trello.rxlifecycle.components.support.RxAppCompatActivity;
 import com.xh.hospitalclient.widget.ToastUtil;
 
-public abstract class BaseActivity<V, T extends BasePresenter<V>>
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
+
+//继承RxAppCompatActivity：使用rxLifeCycle防止因rxjava引起的内存泄漏
+public abstract class BaseActivity<V, T extends BaseActivityPresenter<V>>
         extends RxAppCompatActivity
         implements BaseView{
 
     protected T mPresenter;
+    //用于Butterknife后续解绑
+    protected Unbinder unbinder;
 
+    //用于绑定布局文件
     protected abstract int getLayoutId();
-//    protected abstract void initView();
-//    protected abstract void initData();
-//    protected abstract void initEvent();
 
+    //一般情况下子类无需重写onCreate方法
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mPresenter = createPresenter();
-        mPresenter.onAttach((V)this);
-        setContentView(getLayoutId());
-//        initView();
-//        initData();
-//        initEvent();
+        mPresenter.onAttach((V)this);//绑定view
+        setContentView(getLayoutId());//绑定布局文件
+        unbinder = ButterKnife.bind(this);//Butterknife绑定界面组件
     }
 
     protected abstract T createPresenter();
@@ -42,8 +44,13 @@ public abstract class BaseActivity<V, T extends BasePresenter<V>>
     }
 
     @Override
-    public void showError() {
+    public void showError(String msg) {
+        ToastUtil.showToast(msg + " fail");
+    }
 
+    @Override
+    public void showSuccess(String msg) {
+        ToastUtil.showToast(msg + " success");
     }
 
     @Override
@@ -69,8 +76,9 @@ public abstract class BaseActivity<V, T extends BasePresenter<V>>
     @Override
     protected void onDestroy() {
         if(mPresenter != null) {
-            mPresenter.onDetach();
+            mPresenter.onDetach();//view解绑，防止内存泄漏
         }
+        unbinder.unbind();//Butterknife解绑
         super.onDestroy();
     }
 }

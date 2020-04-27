@@ -1,20 +1,21 @@
 package com.xh.hospitalclient.base;
 
 import com.trello.rxlifecycle.LifecycleProvider;
-import com.trello.rxlifecycle.android.ActivityEvent;
+import com.trello.rxlifecycle.android.FragmentEvent;
 
 import java.lang.ref.WeakReference;
 
-public abstract class BasePresenter<V>{
+//与BaseActivityPresenter类似
+public abstract class BaseFragmentPresenter<V>{
     protected WeakReference<V> mViewRef;
 
-    private LifecycleProvider<ActivityEvent> mProvider;
+    private LifecycleProvider<FragmentEvent> mProvider;
 
-    public BasePresenter(LifecycleProvider<ActivityEvent> provider) {
+    public BaseFragmentPresenter(LifecycleProvider<FragmentEvent> provider) {
         this.mProvider = provider;
     }
 
-    public LifecycleProvider<ActivityEvent> getProvider() {
+    public LifecycleProvider<FragmentEvent> getProvider() {
         return mProvider;
     }
 

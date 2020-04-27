@@ -1,4 +1,4 @@
-package com.xh.hospitalclient.model.entities;
+package com.xh.hospitalclient.model;
 
 public class UserBean {
     private String userId;
@@ -6,17 +6,6 @@ public class UserBean {
     private String userName;
     private int userAge;
     private boolean userSex;
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "userId='" + userId + '\'' +
-                ", userPwd='" + userPwd + '\'' +
-                ", userName='" + userName + '\'' +
-                ", userAge=" + userAge +
-                ", userSex=" + userSex +
-                '}';
-    }
 
     public String getUserId() {
         return userId;
@@ -56,5 +45,16 @@ public class UserBean {
 
     public void setUserSex(boolean userSex) {
         this.userSex = userSex;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId='" + userId + '\'' +
+                ", userPwd='" + userPwd + '\'' +
+                ", userName='" + userName + '\'' +
+                ", userAge=" + userAge +
+                ", userSex=" + userSex +
+                '}';
     }
 }

@@ -1,4 +1,4 @@
-package com.xh.hospitalclient.module.Test;
+package com.xh.hospitalclient.module.test;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -7,16 +7,14 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.xh.hospitalclient.R;
-import com.xh.hospitalclient.model.entities.TestBean;
-import com.xh.hospitalclient.module.Test.TestPresenter;
-import com.xh.hospitalclient.module.Test.TestView;
+import com.xh.hospitalclient.model.TestBean;
 import com.xh.hospitalclient.base.BaseActivity;
 
 import butterknife.ButterKnife;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class TestActivity extends BaseActivity<TestView,TestPresenter> implements TestView {
+public class TestActivity extends BaseActivity<TestView, TestActivityPresenter> implements TestView {
     private static final String TAG = "TestActivity";
 
     @BindView(R.id.btn)
@@ -32,12 +30,12 @@ public class TestActivity extends BaseActivity<TestView,TestPresenter> implement
 
     @Override
     protected int getLayoutId() {
-        return R.layout.activity_main;
+        return R.layout.activity_test;
     }
 
     @Override
-    protected TestPresenter createPresenter() {
-        return new TestPresenter(this);
+    protected TestActivityPresenter createPresenter() {
+        return new TestActivityPresenter(this);
     }
 
     @OnClick(R.id.btn)

@@ -1,18 +1,17 @@
-package com.xh.hospitalclient.module.Login.Register;
+package com.xh.hospitalclient.module.login.Register;
 
 import android.util.Log;
 
 import com.trello.rxlifecycle.LifecycleProvider;
 import com.trello.rxlifecycle.android.ActivityEvent;
-import com.xh.hospitalclient.model.entities.UserBean;
+import com.xh.hospitalclient.model.UserBean;
 import com.xh.hospitalclient.net.RetrofitSubscriber;
-import com.xh.hospitalclient.widget.ToastUtil;
 
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
-public class RegisterPresenterImpl extends RegisterContract.RegisterPresenter{
-    private static final String TAG = "RegisterPresenter";
+public class RegisterPresenterImpl extends RegisterContract.RegisterActivityPresenter {
+    private static final String TAG = "RegisterActivityPresenter";
     private RegisterModelImpl registerModel;
 
     @Override
@@ -29,13 +28,13 @@ public class RegisterPresenterImpl extends RegisterContract.RegisterPresenter{
                     @Override
                     public void onSuccess(UserBean userBean) {
                         Log.i(TAG, "onSuccess: " + userBean.toString());
-                        ToastUtil.showToast("注册成功");
+                        getView().showSuccess("register");
                         getView().toMainActivity();
                     }
                     @Override
                     public void onError(String errorMsg) {
                         Log.i(TAG, "onError: fail");
-                        ToastUtil.showToast("注册失败");
+                        getView().showError("register");
                     }
                 });
     }

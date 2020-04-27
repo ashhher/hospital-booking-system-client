@@ -1,4 +1,4 @@
-package com.xh.hospitalclient.module.Login.Register;
+package com.xh.hospitalclient.module.login.Register;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,14 +8,14 @@ import android.view.View;
 import android.widget.Button;
 
 import com.xh.hospitalclient.R;
+import com.xh.hospitalclient.module.UserMainActivity;
 import com.xh.hospitalclient.base.BaseActivity;
-import com.xh.hospitalclient.module.Test.TestActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class RegisterActivity extends BaseActivity<RegisterContract.RegisterView,RegisterPresenterImpl> implements RegisterContract.RegisterView {
+public class RegisterActivity extends BaseActivity<RegisterContract.RegisterView, RegisterPresenterImpl> implements RegisterContract.RegisterView {
     private static final String TAG = "RegisterActivity";
 
     @BindView(R.id.til_rusername)
@@ -100,7 +100,7 @@ public class RegisterActivity extends BaseActivity<RegisterContract.RegisterView
             showError(til_sex,"性别不能为空");
             return false;
         }
-        else if(sex.equals("男")) {
+        else if(!sex.equals("男") && !sex.equals("女")) {
             showError(til_sex,"请填写“男”或“女”");
             return false;
         }
@@ -116,7 +116,7 @@ public class RegisterActivity extends BaseActivity<RegisterContract.RegisterView
 
     @Override
     public void toMainActivity() {
-        Intent it_register_to_main = new Intent(this, TestActivity.class);
+        Intent it_register_to_main = new Intent(this, UserMainActivity.class);
         startActivity(it_register_to_main);
     }
 }

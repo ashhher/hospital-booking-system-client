@@ -1,7 +1,7 @@
-package com.xh.hospitalclient.module.Login;
+package com.xh.hospitalclient.module.login;
 
 import com.xh.hospitalclient.config.APIService;
-import com.xh.hospitalclient.model.entities.UserBean;
+import com.xh.hospitalclient.model.UserBean;
 import com.xh.hospitalclient.net.RetrofitHelper;
 
 import rx.Observable;

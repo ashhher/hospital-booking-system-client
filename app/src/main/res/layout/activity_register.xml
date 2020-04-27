@@ -16,7 +16,7 @@
             android:id="@+id/et_rusername"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="请输入用户名" />
+            android:hint="@string/user_register_username_hint" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -31,7 +31,7 @@
             android:id="@+id/et_rpassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="密码"
+            android:hint="@string/user_register_password_hint"
             android:inputType="textPassword"/>
     </android.support.design.widget.TextInputLayout>
 

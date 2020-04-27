@@ -1,11 +1,11 @@
-package com.xh.hospitalclient.module.Login;
+package com.xh.hospitalclient.module.login;
 
 import com.trello.rxlifecycle.LifecycleProvider;
 import com.trello.rxlifecycle.android.ActivityEvent;
 import com.xh.hospitalclient.base.BaseModel;
-import com.xh.hospitalclient.base.BasePresenter;
+import com.xh.hospitalclient.base.BaseActivityPresenter;
 import com.xh.hospitalclient.base.BaseView;
-import com.xh.hospitalclient.model.entities.UserBean;
+import com.xh.hospitalclient.model.UserBean;
 
 import rx.Observable;
 
@@ -15,13 +15,12 @@ public interface LoginContract {
     }
 
     interface LoginView extends BaseView {
-        void showLogin(String info);
         void toMainActivity();
     }
 
-    abstract class LoginPresenter extends BasePresenter<LoginView> {
+    abstract class LoginActivityPresenter extends BaseActivityPresenter<LoginView> {
         abstract void login(String username, String password);
-        public LoginPresenter(LifecycleProvider<ActivityEvent> provider) {
+        public LoginActivityPresenter(LifecycleProvider<ActivityEvent> provider) {
             super(provider);
         }
     }

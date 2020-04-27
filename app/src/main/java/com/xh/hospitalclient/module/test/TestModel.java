@@ -1,6 +1,6 @@
-package com.xh.hospitalclient.model;
+package com.xh.hospitalclient.module.test;
 
-import com.xh.hospitalclient.model.entities.TestBean;
+import com.xh.hospitalclient.model.TestBean;
 import com.xh.hospitalclient.base.BaseModel;
 import com.xh.hospitalclient.net.RetrofitHelper;
 import com.xh.hospitalclient.config.APIService;

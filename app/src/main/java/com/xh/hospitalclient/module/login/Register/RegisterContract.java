@@ -1,11 +1,11 @@
-package com.xh.hospitalclient.module.Login.Register;
+package com.xh.hospitalclient.module.login.Register;
 
 import com.trello.rxlifecycle.LifecycleProvider;
 import com.trello.rxlifecycle.android.ActivityEvent;
 import com.xh.hospitalclient.base.BaseModel;
-import com.xh.hospitalclient.base.BasePresenter;
+import com.xh.hospitalclient.base.BaseActivityPresenter;
 import com.xh.hospitalclient.base.BaseView;
-import com.xh.hospitalclient.model.entities.UserBean;
+import com.xh.hospitalclient.model.UserBean;
 
 import rx.Observable;
 
@@ -18,9 +18,9 @@ public interface RegisterContract {
         void toMainActivity();
     }
 
-    abstract class RegisterPresenter extends BasePresenter<RegisterView> {
+    abstract class RegisterActivityPresenter extends BaseActivityPresenter<RegisterView> {
         abstract void register(String username, String password, String name, String age, String sex);
-        public RegisterPresenter(LifecycleProvider<ActivityEvent> provider) {
+        public RegisterActivityPresenter(LifecycleProvider<ActivityEvent> provider) {
             super(provider);
         }
     }

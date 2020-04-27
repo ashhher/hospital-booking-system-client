@@ -1,25 +1,24 @@
-package com.xh.hospitalclient.module.Login;
+package com.xh.hospitalclient.module.login;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.xh.hospitalclient.R;
+import com.xh.hospitalclient.module.UserMainActivity;
 import com.xh.hospitalclient.base.BaseActivity;
-import com.xh.hospitalclient.base.BasePresenter;
-import com.xh.hospitalclient.module.Login.Register.RegisterActivity;
-import com.xh.hospitalclient.module.Test.TestActivity;
-import com.xh.hospitalclient.widget.ToastUtil;
+import com.xh.hospitalclient.module.login.Register.RegisterActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class LoginActivity extends BaseActivity<LoginContract.LoginView, LoginPresenterImpl> implements LoginContract.LoginView {
+public class LoginActivity
+        extends BaseActivity<LoginContract.LoginView, LoginPresenterImpl>
+        implements LoginContract.LoginView {
     private static final String TAG = "LoginActivity";
 
     @BindView(R.id.til_username)
@@ -30,12 +29,6 @@ public class LoginActivity extends BaseActivity<LoginContract.LoginView, LoginPr
     public Button btn_login;
     @BindView(R.id.tv_register)
     public TextView tv_register;
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        ButterKnife.bind(this);
-    }
 
     @Override
     protected int getLayoutId() {
@@ -95,13 +88,8 @@ public class LoginActivity extends BaseActivity<LoginContract.LoginView, LoginPr
     }
 
     @Override
-    public void showLogin(String info) {
-        ToastUtil.showToast(info);
-    }
-
-    @Override
     public void toMainActivity() {
-        Intent it_login_to_main = new Intent(this, TestActivity.class);
+        Intent it_login_to_main = new Intent(this, UserMainActivity.class);
         startActivity(it_login_to_main);
     }
 
