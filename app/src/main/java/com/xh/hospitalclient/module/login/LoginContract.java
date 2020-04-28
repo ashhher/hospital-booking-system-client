@@ -10,17 +10,17 @@ import com.xh.hospitalclient.model.UserBean;
 import rx.Observable;
 
 public interface LoginContract {
-    interface LoginModel extends BaseModel{
-        Observable<UserBean> login(String username, String password);
+    abstract class LoginModel extends BaseModel{
+        abstract Observable<UserBean> login(String username, String password);
     }
 
     interface LoginView extends BaseView {
         void toMainActivity();
     }
 
-    abstract class LoginActivityPresenter extends BaseActivityPresenter<LoginView> {
+    abstract class LoginPresenter extends BaseActivityPresenter<LoginView> {
         abstract void login(String username, String password);
-        public LoginActivityPresenter(LifecycleProvider<ActivityEvent> provider) {
+        public LoginPresenter(LifecycleProvider<ActivityEvent> provider) {
             super(provider);
         }
     }

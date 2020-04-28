@@ -30,8 +30,15 @@ public class ReportPresenterImpl extends ReportContract.ReportPresenter {
 //                });
 //    }
 
-    public ReportPresenterImpl(LifecycleProvider<FragmentEvent> provider) {
+    ReportPresenterImpl(LifecycleProvider<FragmentEvent> provider) {
         super(provider);
         reportModel = ReportModelImpl.getInstance();
+        reportModel.getRealm();
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        reportModel.closeRealm();
     }
 }

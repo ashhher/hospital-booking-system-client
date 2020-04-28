@@ -10,17 +10,17 @@ import com.xh.hospitalclient.model.UserBean;
 import rx.Observable;
 
 public interface RegisterContract {
-    interface RegisterModel extends BaseModel{
-        public Observable<UserBean> register(String username, String password, String name, int age, boolean sex);
+    abstract class RegisterModel extends BaseModel{
+        public abstract Observable<UserBean> register(String username, String password, String name, int age, boolean sex);
     }
 
     interface RegisterView extends BaseView {
         void toMainActivity();
     }
 
-    abstract class RegisterActivityPresenter extends BaseActivityPresenter<RegisterView> {
+    abstract class RegisterPresenter extends BaseActivityPresenter<RegisterView> {
         abstract void register(String username, String password, String name, String age, String sex);
-        public RegisterActivityPresenter(LifecycleProvider<ActivityEvent> provider) {
+        public RegisterPresenter(LifecycleProvider<ActivityEvent> provider) {
             super(provider);
         }
     }

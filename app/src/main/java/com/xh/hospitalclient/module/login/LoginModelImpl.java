@@ -4,22 +4,22 @@ import com.xh.hospitalclient.config.APIService;
 import com.xh.hospitalclient.model.UserBean;
 import com.xh.hospitalclient.net.RetrofitHelper;
 
+import io.realm.Realm;
 import rx.Observable;
 
-public class LoginModelImpl implements LoginContract.LoginModel {
+public class LoginModelImpl extends LoginContract.LoginModel {
     private static LoginModelImpl loginModel;
-    private APIService mApiService;
 
+    private LoginModelImpl() {
+        setAPIService(RetrofitHelper.getInstance().getRetrofitService());
+    }
     public static LoginModelImpl getInstance() {
         return loginModel == null ? loginModel = new LoginModelImpl() : loginModel;
     }
 
-    private LoginModelImpl() {
-        mApiService = RetrofitHelper.getInstance().getRetrofitService();
-    }
-
     @Override
     public Observable<UserBean> login(String username, String password) {
-        return mApiService.loginRx(username,password);
+        return getAPIService().loginRx(username,password);
     }
+
 }

@@ -10,7 +10,7 @@ import com.xh.hospitalclient.net.RetrofitSubscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
-public class LoginPresenterImpl extends LoginContract.LoginActivityPresenter {
+public class LoginPresenterImpl extends LoginContract.LoginPresenter {
     private static final String TAG = "LoginActivityPresenter";
     private LoginModelImpl loginModel;
 
@@ -37,8 +37,15 @@ public class LoginPresenterImpl extends LoginContract.LoginActivityPresenter {
                 });
     }
 
-    public LoginPresenterImpl(LifecycleProvider<ActivityEvent> provider) {
+    LoginPresenterImpl(LifecycleProvider<ActivityEvent> provider) {
         super(provider);
         loginModel = LoginModelImpl.getInstance();
+        loginModel.getRealm();
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        loginModel.closeRealm();
     }
 }

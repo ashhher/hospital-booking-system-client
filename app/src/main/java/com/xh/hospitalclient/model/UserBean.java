@@ -1,6 +1,10 @@
 package com.xh.hospitalclient.model;
 
-public class UserBean {
+import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
+
+public class UserBean extends RealmObject {
+    @PrimaryKey
     private String userId;
     private String userPwd;
     private String userName;

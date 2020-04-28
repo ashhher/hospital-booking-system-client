@@ -7,7 +7,7 @@ import com.xh.hospitalclient.base.BaseModel;
 import com.xh.hospitalclient.base.BaseView;
 
 public interface ReportContract {
-    interface ReportModel extends BaseModel {
+    abstract class ReportModel extends BaseModel {
 //        Observable<ReportBean> login(String username, String password);
     }
 

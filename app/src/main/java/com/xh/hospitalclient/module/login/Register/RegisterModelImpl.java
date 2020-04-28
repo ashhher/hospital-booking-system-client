@@ -6,20 +6,18 @@ import com.xh.hospitalclient.net.RetrofitHelper;
 
 import rx.Observable;
 
-public class RegisterModelImpl implements RegisterContract.RegisterModel {
+public class RegisterModelImpl extends RegisterContract.RegisterModel {
     private static RegisterModelImpl registerModel;
-    private APIService mApiService;
 
+    private RegisterModelImpl() {
+        setAPIService(RetrofitHelper.getInstance().getRetrofitService());
+    }
     public static RegisterModelImpl getInstance() {
         return registerModel == null ? registerModel = new RegisterModelImpl() : registerModel;
     }
 
-    private RegisterModelImpl() {
-        mApiService = RetrofitHelper.getInstance().getRetrofitService();
-    }
-
     @Override
     public Observable<UserBean> register(String username, String password, String name, int age, boolean sex) {
-        return mApiService.registerRx(username,password,name,age,sex);
+        return getAPIService().registerRx(username,password,name,age,sex);
     }
 }

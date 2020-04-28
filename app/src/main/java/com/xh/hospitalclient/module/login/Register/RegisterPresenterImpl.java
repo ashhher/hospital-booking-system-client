@@ -10,8 +10,8 @@ import com.xh.hospitalclient.net.RetrofitSubscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
-public class RegisterPresenterImpl extends RegisterContract.RegisterActivityPresenter {
-    private static final String TAG = "RegisterActivityPresenter";
+public class RegisterPresenterImpl extends RegisterContract.RegisterPresenter {
+    private static final String TAG = "RegisterPresenter";
     private RegisterModelImpl registerModel;
 
     @Override
@@ -39,8 +39,15 @@ public class RegisterPresenterImpl extends RegisterContract.RegisterActivityPres
                 });
     }
 
-    public RegisterPresenterImpl(LifecycleProvider<ActivityEvent> provider) {
+    RegisterPresenterImpl(LifecycleProvider<ActivityEvent> provider) {
         super(provider);
-        registerModel = registerModel.getInstance();
+        registerModel = RegisterModelImpl.getInstance();
+        registerModel.getRealm();
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        registerModel.closeRealm();
     }
 }

@@ -6,16 +6,14 @@ import com.xh.hospitalclient.net.RetrofitHelper;
 
 import rx.Observable;
 
-public class ReportModelImpl implements ReportContract.ReportModel {
+public class ReportModelImpl extends ReportContract.ReportModel {
     private static ReportModelImpl reportModel;
-    private APIService mApiService;
-
-    public static ReportModelImpl getInstance() {
-        return reportModel == null ? reportModel = new ReportModelImpl() : reportModel;
-    }
 
     private ReportModelImpl() {
-        mApiService = RetrofitHelper.getInstance().getRetrofitService();
+        setAPIService(RetrofitHelper.getInstance().getRetrofitService());
+    }
+    public static ReportModelImpl getInstance() {
+        return reportModel == null ? reportModel = new ReportModelImpl() : reportModel;
     }
 
 //    @Override
