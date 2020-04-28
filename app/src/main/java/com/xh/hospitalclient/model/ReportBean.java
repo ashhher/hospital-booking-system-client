@@ -1,6 +1,10 @@
 package com.xh.hospitalclient.model;
 
-public class ReportBean {
+import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
+
+public class ReportBean extends RealmObject {
+    @PrimaryKey
     private int rptId;
     private String userId;
     private String rptTitle;
