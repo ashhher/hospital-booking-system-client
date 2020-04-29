@@ -2,6 +2,7 @@ package com.xh.hospitalclient.base;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,8 @@ import com.xh.hospitalclient.widget.ToastUtil;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
+import static android.content.ContentValues.TAG;
+
 //与BaseActivity类似
 public abstract class BaseFragment<V, T extends BaseFragmentPresenter<V>>
         extends RxFragment
@@ -22,32 +25,29 @@ public abstract class BaseFragment<V, T extends BaseFragmentPresenter<V>>
     protected Unbinder unbinder;
 
     protected abstract int getLayoutId();
+    protected abstract void initView();
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        mPresenter = createPresenter();
-        View view = inflater.inflate(getLayoutId(),container);
+        View view = inflater.inflate(getLayoutId(),container,false);
         unbinder = ButterKnife.bind(this,view);
-        return super.onCreateView(inflater, container, savedInstanceState);
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
+        mPresenter = createPresenter();
         mPresenter.onAttach((V)this);
+        initView();
+        return view;
     }
 
     protected abstract T createPresenter();
 
     @Override
     public void showLoading() {
-
+//Todo: show loading in base fragment
     }
 
     @Override
     public void hideLoading() {
-
+//Todo: hide loading in base fragment
     }
 
     @Override
@@ -61,11 +61,16 @@ public abstract class BaseFragment<V, T extends BaseFragmentPresenter<V>>
     }
 
     @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
+    }
+
+    @Override
     public void onDestroy() {
         if(mPresenter != null) {
             mPresenter.onDetach();
         }
-        unbinder.unbind();
         super.onDestroy();
     }
 

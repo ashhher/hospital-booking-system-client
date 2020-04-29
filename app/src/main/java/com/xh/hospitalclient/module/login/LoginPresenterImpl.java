@@ -16,7 +16,7 @@ public class LoginPresenterImpl extends LoginContract.LoginPresenter {
 
     @Override
     void login(String username, String password) {
-        getView().showLoading();
+        getView().showLoading();//Todo: hide loading
 
         loginModel.login(username, password)
                 .subscribeOn(Schedulers.io())

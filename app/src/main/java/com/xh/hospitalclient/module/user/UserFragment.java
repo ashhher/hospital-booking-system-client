@@ -13,22 +13,19 @@ import android.arch.lifecycle.ViewModelProviders;
 
 import com.xh.hospitalclient.R;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class UserFragment extends Fragment {
 
-    private UserViewModel userViewModel;
+    @BindView(R.id.tv_user)
+    TextView tvUser;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        userViewModel =
-                ViewModelProviders.of(this).get(UserViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_user, container, false);
-        final TextView textView = root.findViewById(R.id.text_notifications);
-        userViewModel.getText().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
-        return root;
+        View view = inflater.inflate(R.layout.fragment_user, container, false);
+        ButterKnife.bind(this, view);
+        tvUser.setText("THIS IS USER");
+        return view;
     }
 }

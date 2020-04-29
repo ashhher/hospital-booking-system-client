@@ -16,7 +16,7 @@ public class RegisterPresenterImpl extends RegisterContract.RegisterPresenter {
 
     @Override
     void register(String username, String password, String name, String age, String sex) {
-        getView().showLoading();
+        getView().showLoading();//Todo: hide loading
 
         int temp_age = Integer.parseInt(age);
         boolean temp_sex = sex.equals("男") ? true : false;

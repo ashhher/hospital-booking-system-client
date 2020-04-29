@@ -1,9 +1,13 @@
 package com.xh.hospitalclient.base;
 
+import android.util.Log;
+
 import com.trello.rxlifecycle.LifecycleProvider;
 import com.trello.rxlifecycle.android.FragmentEvent;
 
 import java.lang.ref.WeakReference;
+
+import static android.content.ContentValues.TAG;
 
 //与BaseActivityPresenter类似
 public abstract class BaseFragmentPresenter<V>{

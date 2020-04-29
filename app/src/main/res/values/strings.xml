@@ -10,4 +10,7 @@
     <string name="user_login_register">注册</string>
     <string name="user_register_username_hint">请输入用户名</string>
     <string name="user_register_password_hint">密码</string>
+    <string name="title_activity_m2">m2Activity</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>

@@ -4,6 +4,9 @@ import com.xh.hospitalclient.config.APIService;
 import com.xh.hospitalclient.model.ReportBean;
 import com.xh.hospitalclient.net.RetrofitHelper;
 
+import java.util.List;
+
+import io.realm.RealmResults;
 import rx.Observable;
 
 public class ReportModelImpl extends ReportContract.ReportModel {
@@ -16,8 +19,9 @@ public class ReportModelImpl extends ReportContract.ReportModel {
         return reportModel == null ? reportModel = new ReportModelImpl() : reportModel;
     }
 
-//    @Override
-//    public Observable<ReportBean> login(String username, String password) {
-//        return mApiService.loginRx(username,password);
-//    }
+    @Override
+    Observable<List<ReportBean>> getReportList(String userId) {
+        return getAPIService().getReportListRx(userId);
+    }
+
 }
