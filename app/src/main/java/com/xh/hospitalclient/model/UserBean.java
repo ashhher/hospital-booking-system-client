@@ -43,7 +43,7 @@ public class UserBean extends RealmObject {
         this.userAge = userAge;
     }
 
-    public boolean isUserSex() {
+    public boolean getUserSex() {
         return userSex;
     }
 

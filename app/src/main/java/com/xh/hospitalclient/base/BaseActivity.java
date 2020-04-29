@@ -45,12 +45,12 @@ public abstract class BaseActivity<V, T extends BaseActivityPresenter<V>>
 
     @Override
     public void showError(String msg) {
-        ToastUtil.showToast(msg + " fail");
+        ToastUtil.showToast(msg + " 失败");
     }
 
     @Override
     public void showSuccess(String msg) {
-        ToastUtil.showToast(msg + " success");
+        ToastUtil.showToast(msg + " 成功");
     }
 
     @Override

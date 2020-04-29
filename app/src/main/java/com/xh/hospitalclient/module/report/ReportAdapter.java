@@ -1,6 +1,7 @@
 package com.xh.hospitalclient.module.report;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -8,7 +9,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.xh.hospitalclient.R;
@@ -17,13 +17,8 @@ import com.xh.hospitalclient.model.ReportBean;
 
 import java.util.List;
 
-import javax.security.auth.callback.Callback;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
-import io.realm.Realm;
-import io.realm.RealmResults;
 
 
 public class ReportAdapter extends RecyclerView.Adapter<BaseViewHolder> {
@@ -72,13 +67,14 @@ public class ReportAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
     //callback函数，在fragment中实现
     public interface ReportCallBack {
-        void onReportItemClick();
     }
 
     public class ViewHolder extends BaseViewHolder {
         CardView cardView;
         @BindView(R.id.tv_rpt_title)
         TextView tvRptTitle;
+        @BindView(R.id.tv_rpt_date)
+        TextView tvRptDate;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -91,23 +87,30 @@ public class ReportAdapter extends RecyclerView.Adapter<BaseViewHolder> {
             super.onBind(position);
             final ReportBean report = reportBeanList.get(position);
             tvRptTitle.setText(report.getRptTitle());
+            tvRptDate.setText(report.getRptDate());
 
-//            itemView.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-////                    Log.i(TAG, "onClick: item");
-//                }
-//            });
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent();
+                    intent.putExtra("reportDetail",report);//此处要intent传递对象必须要使该bean implements Serializable
+                    intent.setClass(context, ReportDetailActivity.class);
+                    context.startActivity(intent);
+
+                    Log.i(TAG, "onClick: item");
+                }
+            });
         }
 
-        @OnClick(R.id.rpt_item)
-        void onItemClick() {
-            reportCallBack.onReportItemClick();
-        }
+//        @OnClick(R.id.rpt_item)
+//        void onItemClick() {
+//            reportCallBack.onReportItemClick();
+//        }
 
         @Override
         protected void clear() {
             tvRptTitle.setText("");
+            tvRptDate.setText("");
         }
     }
 }

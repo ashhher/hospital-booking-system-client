@@ -34,10 +34,9 @@ public class ReportPresenterImpl extends ReportContract.ReportPresenter {
                     @Override
                     public void onSuccess(List<ReportBean> reportBeans) {
                         reportList = reportBeans;
-                        Log.i(TAG, "onSuccess: " + reportList.toString());
                         getView().showSuccess("load report list");
                         getView().bindListData(reportList);
-                        getView().setAdapter();
+                        getView().setAdapter();//这一步本应该是主线程执行 但目前放在这才能确保adapter数据被绑定
                     }
                     @Override
                     public void onError(String errorMsg) {

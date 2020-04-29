@@ -1,14 +1,19 @@
 package com.xh.hospitalclient.module.login;
 
+import android.content.SharedPreferences;
 import android.util.Log;
 
 import com.trello.rxlifecycle.LifecycleProvider;
 import com.trello.rxlifecycle.android.ActivityEvent;
+import com.xh.hospitalclient.MyApplication;
 import com.xh.hospitalclient.model.UserBean;
+import com.xh.hospitalclient.model.UserInfo;
 import com.xh.hospitalclient.net.RetrofitSubscriber;
 
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
+
+import static android.content.Context.MODE_PRIVATE;
 
 public class LoginPresenterImpl extends LoginContract.LoginPresenter {
     private static final String TAG = "LoginActivityPresenter";
@@ -26,13 +31,16 @@ public class LoginPresenterImpl extends LoginContract.LoginPresenter {
                     @Override
                     public void onSuccess(UserBean userBean) {
                         Log.i(TAG, "onSuccess: " + userBean.toString());
-                        getView().showSuccess("login");
+                        //放入缓存
+                        UserInfo.set(MyApplication.getInstance(),userBean);
+
+                        getView().showSuccess("登录");
                         getView().toMainActivity();
                     }
                     @Override
                     public void onError(String errorMsg) {
                         Log.i(TAG, "onError: fail");
-                        getView().showError("login");
+                        getView().showError("登录");
                     }
                 });
     }

@@ -91,6 +91,7 @@ public class LoginActivity
     public void toMainActivity() {
         Intent it_login_to_main = new Intent(this, UserMainActivity.class);
         startActivity(it_login_to_main);
+        //todo: 1. realm存储用户数据 2. intent传值
     }
 
     public void toRegisterAvtivity() {

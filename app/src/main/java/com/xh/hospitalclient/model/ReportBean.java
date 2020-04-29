@@ -1,13 +1,17 @@
 package com.xh.hospitalclient.model;
 
+import java.io.Serializable;
+import java.util.Date;
+
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
-public class ReportBean extends RealmObject {
+public class ReportBean extends RealmObject implements Serializable {
     @PrimaryKey
     private int rptId;
     private String userId;
     private String rptTitle;
+    private String rptDate;
     private String rptContent;
 
     public int getRptId() {
@@ -42,11 +46,21 @@ public class ReportBean extends RealmObject {
         this.rptTitle = rptTitle;
     }
 
+    public String getRptDate() {
+        return rptDate;
+    }
+
+    public void setRptDate(String rptDate) {
+        this.rptDate = rptDate;
+    }
+
     @Override
     public String toString() {
         return "Report{" +
                 "rptId=" + rptId +
                 ", userId='" + userId + '\'' +
+                ", rptTitle='" + rptTitle + '\'' +
+                ", rptDate=" + rptDate +
                 ", rptContent='" + rptContent + '\'' +
                 '}';
     }
