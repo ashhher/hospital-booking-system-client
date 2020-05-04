@@ -1,2 +1,2 @@
-include ':app', ':mvp'
+include ':app',
 rootProject.name='hospitalClient'
