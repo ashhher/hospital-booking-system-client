@@ -12,4 +12,10 @@
     <string name="user_register_password_hint">密码</string>
     <string name="title_department_list">departments</string>
     <string name="title_department_detail">department Detail</string>
+    <string name="title_activity_reg_table">RegTableActivity</string>
+    <string name="tab_text_1">按医生</string>
+    <string name="tab_text_2">按日期</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -1,6 +1,7 @@
 package com.xh.hospitalclient.module.registration.department;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 import com.xh.hospitalclient.R;
 import com.xh.hospitalclient.base.BaseViewHolder;
 import com.xh.hospitalclient.model.DeptBean;
+import com.xh.hospitalclient.module.registration.table.RegTableActivity;
 
 import java.util.List;
 
@@ -64,20 +66,21 @@ public class DeptAdapter extends RecyclerView.Adapter<BaseViewHolder> {
         @Override
         public void onBind(int position) {
             super.onBind(position);
-            final DeptBean department = departmentList.get(position);
-            tvDept.setText(departmentList.get(position).getDeptName());
+            DeptBean department = departmentList.get(position);
+            final String deptName = departmentList.get(position).getDeptName();
+            tvDept.setText(deptName);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-//                    Intent intent = new Intent();
-//                    intent.putExtra("reportDetail",report);//此处要intent传递对象必须要使该bean implements Serializable
-//                    intent.setClass(context, ReportDetailActivity.class);
-//                    context.startActivity(intent);
+                    Intent intent = new Intent();
+                    intent.putExtra("departmentName",deptName);//传入科室名称
+                    intent.setClass(context, RegTableActivity.class);
+                    context.startActivity(intent);
 
-                    Log.i(TAG, "onClick: " + department.getDeptName());
                 }
             });
+            Log.i(TAG, "onClick: " + deptName);
         }
 
         @Override
