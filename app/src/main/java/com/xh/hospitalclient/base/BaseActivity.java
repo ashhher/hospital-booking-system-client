@@ -1,9 +1,11 @@
 package com.xh.hospitalclient.base;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 
 import com.trello.rxlifecycle.components.support.RxAppCompatActivity;
+import com.xh.hospitalclient.widget.LoadingDialog;
 import com.xh.hospitalclient.widget.ToastUtil;
 
 import butterknife.ButterKnife;
@@ -13,34 +15,39 @@ import butterknife.Unbinder;
 public abstract class BaseActivity<V, T extends BaseActivityPresenter<V>>
         extends RxAppCompatActivity
         implements BaseView{
+    private static final String TAG = "BaseActivity";
 
     protected T mPresenter;
     //用于Butterknife后续解绑
     protected Unbinder unbinder;
+    protected LoadingDialog loadingDialog;
 
     //用于绑定布局文件
     protected abstract int getLayoutId();
+    protected abstract void initView();
 
     //一般情况下子类无需重写onCreate方法
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mPresenter = createPresenter();
-        mPresenter.onAttach((V)this);//绑定view
         setContentView(getLayoutId());//绑定布局文件
         unbinder = ButterKnife.bind(this);//Butterknife绑定界面组件
+        mPresenter = createPresenter();
+        mPresenter.onAttach((V)this);//绑定view
+        initView();
     }
 
     protected abstract T createPresenter();
 
     @Override
     public void showLoading() {
-
+        loadingDialog = new LoadingDialog(this);
+        loadingDialog.show();
     }
 
     @Override
     public void hideLoading() {
-
+        loadingDialog.close();
     }
 
     @Override

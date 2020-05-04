@@ -54,7 +54,7 @@ public abstract class RetrofitSubscriber<M> extends Subscriber<M> {
     @Override
     public void onNext(M modelBean) {
         if(modelBean!=null){
-                onSuccess(modelBean);
+            onSuccess(modelBean);
         }else {
             onError(modelBean.toString());
         }

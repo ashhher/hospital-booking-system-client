@@ -45,6 +45,11 @@ public class RegisterActivity extends BaseActivity<RegisterContract.RegisterView
     }
 
     @Override
+    protected void initView() {
+
+    }
+
+    @Override
     protected RegisterPresenterImpl createPresenter() {
         return new RegisterPresenterImpl(this);
     }
@@ -100,10 +105,10 @@ public class RegisterActivity extends BaseActivity<RegisterContract.RegisterView
             showError(til_sex,"性别不能为空");
             return false;
         }
-        else if(!sex.equals("男") && !sex.equals("女")) {
-            showError(til_sex,"请填写“男”或“女”");
-            return false;
-        }
+//        else if(!sex.equals("男") && !sex.equals("女")) {
+//            showError(til_sex,"请填写“男”或“女”");
+//            return false;
+//        }
         return true;
     }
 

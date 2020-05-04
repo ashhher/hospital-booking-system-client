@@ -7,10 +7,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.wang.avi.AVLoadingIndicatorView;
 import com.xh.hospitalclient.R;
 import com.xh.hospitalclient.module.UserMainActivity;
 import com.xh.hospitalclient.base.BaseActivity;
 import com.xh.hospitalclient.module.login.Register.RegisterActivity;
+import com.xh.hospitalclient.widget.LoadingDialog;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -29,10 +31,17 @@ public class LoginActivity
     public Button btn_login;
     @BindView(R.id.tv_register)
     public TextView tv_register;
+//    @BindView(R.id.avi)
+//    public AVLoadingIndicatorView loading;
 
     @Override
     protected int getLayoutId() {
         return R.layout.activity_login;
+    }
+
+    @Override
+    protected void initView() {
+//        loading.show();
     }
 
     @Override
@@ -56,7 +65,6 @@ public class LoginActivity
                 break;
             case R.id.tv_register:
                 toRegisterAvtivity();
-
         }
     }
 
@@ -91,11 +99,11 @@ public class LoginActivity
     public void toMainActivity() {
         Intent it_login_to_main = new Intent(this, UserMainActivity.class);
         startActivity(it_login_to_main);
-        //todo: 1. realm存储用户数据 2. intent传值
     }
 
     public void toRegisterAvtivity() {
         Intent it_login_to_register = new Intent(this, RegisterActivity.class);
         startActivity(it_login_to_register);
     }
+
 }

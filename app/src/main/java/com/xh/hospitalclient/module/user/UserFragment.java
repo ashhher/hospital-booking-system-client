@@ -18,14 +18,14 @@ import butterknife.ButterKnife;
 
 public class UserFragment extends Fragment {
 
-    @BindView(R.id.tv_user)
+//    @BindView(R.id.tv_user)
     TextView tvUser;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_user, container, false);
-        ButterKnife.bind(this, view);
-        tvUser.setText("THIS IS USER");
+//        ButterKnife.bind(this, view);
+//        tvUser.setText("THIS IS USER");
         return view;
     }
 }

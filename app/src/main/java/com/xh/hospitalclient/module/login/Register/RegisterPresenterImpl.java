@@ -4,7 +4,9 @@ import android.util.Log;
 
 import com.trello.rxlifecycle.LifecycleProvider;
 import com.trello.rxlifecycle.android.ActivityEvent;
+import com.xh.hospitalclient.MyApplication;
 import com.xh.hospitalclient.model.UserBean;
+import com.xh.hospitalclient.model.UserInfo;
 import com.xh.hospitalclient.net.RetrofitSubscriber;
 
 import rx.android.schedulers.AndroidSchedulers;
@@ -16,7 +18,7 @@ public class RegisterPresenterImpl extends RegisterContract.RegisterPresenter {
 
     @Override
     void register(String username, String password, String name, String age, String sex) {
-        getView().showLoading();//Todo: hide loading
+        getView().showLoading();
 
         int temp_age = Integer.parseInt(age);
         boolean temp_sex = sex.equals("男") ? true : false;
@@ -28,12 +30,15 @@ public class RegisterPresenterImpl extends RegisterContract.RegisterPresenter {
                     @Override
                     public void onSuccess(UserBean userBean) {
                         Log.i(TAG, "onSuccess: " + userBean.toString());
+                        UserInfo.set(MyApplication.getInstance(),userBean);
+                        getView().hideLoading();
                         getView().showSuccess("register");
                         getView().toMainActivity();
                     }
                     @Override
                     public void onError(String errorMsg) {
                         Log.i(TAG, "onError: fail");
+                        getView().hideLoading();
                         getView().showError("register");
                     }
                 });

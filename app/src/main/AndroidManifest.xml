@@ -14,11 +14,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".module.report.ReportDetailActivity"></activity>
+        <activity android:name=".module.registration.table.RegTableActivity"></activity>
+        <activity android:name=".module.report.ReportDetailActivity" />
         <activity
             android:name=".module.UserMainActivity"
-            android:label="@string/title_activity_user_main">
-        </activity>
+            android:label="@string/title_activity_user_main" />
         <activity android:name=".module.login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,6 +27,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".module.login.Register.RegisterActivity" />
+        <activity android:name=".module.registration.department.DeptActivity"></activity>
     </application>
 
 </manifest>

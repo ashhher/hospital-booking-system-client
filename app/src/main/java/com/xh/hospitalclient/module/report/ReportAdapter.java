@@ -53,7 +53,7 @@ public class ReportAdapter extends RecyclerView.Adapter<BaseViewHolder> {
         if (reportBeanList != null && reportBeanList.size() > 0) {
             return reportBeanList.size();
         } else {
-            return 1;
+            return 0;
         }
     }
 
@@ -92,6 +92,7 @@ public class ReportAdapter extends RecyclerView.Adapter<BaseViewHolder> {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+
                     Intent intent = new Intent();
                     intent.putExtra("reportDetail",report);//此处要intent传递对象必须要使该bean implements Serializable
                     intent.setClass(context, ReportDetailActivity.class);

@@ -7,7 +7,7 @@ import io.realm.Realm;
 
 public abstract class BaseModel {
     private APIService mApiService;
-    private Realm realm;
+    protected Realm realm;
 
     protected APIService getAPIService() {
         return mApiService;

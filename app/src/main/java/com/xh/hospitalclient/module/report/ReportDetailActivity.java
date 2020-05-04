@@ -9,6 +9,7 @@ import com.xh.hospitalclient.MyApplication;
 import com.xh.hospitalclient.R;
 import com.xh.hospitalclient.model.ReportBean;
 import com.xh.hospitalclient.model.UserInfo;
+import com.xh.hospitalclient.widget.LoadingDialog;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -30,6 +31,7 @@ public class ReportDetailActivity extends AppCompatActivity {
     TextView tvDate;
 
     ReportBean report;
+    LoadingDialog loadingDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,17 +42,22 @@ public class ReportDetailActivity extends AppCompatActivity {
     }
 
     private void initData() {
+        loadingDialog = new LoadingDialog(this);
+        loadingDialog.show();
+
         Bundle bundle = getIntent().getExtras();
         if(bundle != null && bundle.getSerializable("reportDetail") != null) {
             report = (ReportBean) bundle.getSerializable("reportDetail");
             Log.i(TAG, "initData: " + report.toString());
         }
         tvTitle.setText(report.getRptTitle());
-        tvUserName.setText(UserInfo.get(MyApplication.getInstance()).getUserName());//todo:此处应是name不是id，还需要数据库获取数据]
+        tvUserName.setText(UserInfo.get(MyApplication.getInstance()).getUserName());
         tvUserAge.setText(UserInfo.get(MyApplication.getInstance()).getUserAge()+"");
         String usersex = UserInfo.get(MyApplication.getInstance()).getUserSex() ? "男" : "女";
         tvUserSex.setText(usersex);
         tvContent.setText(report.getRptContent());
         tvDate.setText(report.getRptDate());
+
+        loadingDialog.close();
     }
 }

@@ -21,28 +21,32 @@ public class LoginPresenterImpl extends LoginContract.LoginPresenter {
 
     @Override
     void login(String username, String password) {
-        getView().showLoading();//Todo: hide loading
+        getView().showLoading();
 
         loginModel.login(username, password)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .compose(getProvider().<UserBean>bindUntilEvent(ActivityEvent.DESTROY))
                 .subscribe(new RetrofitSubscriber<UserBean>() {
+
                     @Override
-                    public void onSuccess(UserBean userBean) {
+                    public void onSuccess(UserBean userBean){
                         Log.i(TAG, "onSuccess: " + userBean.toString());
                         //放入缓存
                         UserInfo.set(MyApplication.getInstance(),userBean);
-
+                        getView().hideLoading();
                         getView().showSuccess("登录");
                         getView().toMainActivity();
+
                     }
                     @Override
                     public void onError(String errorMsg) {
                         Log.i(TAG, "onError: fail");
-                        getView().showError("登录");
+                        getView().hideLoading();
+                        getView().showError("用户不存在或密码错误，登录");
                     }
                 });
+
     }
 
     LoginPresenterImpl(LifecycleProvider<ActivityEvent> provider) {

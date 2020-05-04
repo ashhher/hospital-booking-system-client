@@ -10,4 +10,6 @@
     <string name="user_login_register">注册</string>
     <string name="user_register_username_hint">请输入用户名</string>
     <string name="user_register_password_hint">密码</string>
+    <string name="title_department_list">departments</string>
+    <string name="title_department_detail">department Detail</string>
 </resources>

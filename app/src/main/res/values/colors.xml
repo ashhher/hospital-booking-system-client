@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="GreenLight">#008577</color>
+    <color name="GreenLight">#009688</color>
     <color name="GreenDark">#00574B</color>
     <color name="White">#fff</color>
     <color name="Gray">#888888</color>
     <color name="GrayLight">#dddddd</color>
     <color name="GrayDark">#666666</color>
+
+    <color name="color_100">#222222</color>
+    <color name="color_101">#555555</color>
+    <color name="color_102">#999999</color>
+    <color name="color_103">#b1b9bf</color>
+    <color name="color_104">#cccccc</color>
+    <color name="color_105">#dddddd</color>
+    <color name="color_106">#e5e5e5</color>
+    <color name="color_107">#f2f3f4</color>
+    <color name="color_108">#f7f7f7</color>
+    <color name="color_109">#ffffffff</color>
+
 </resources>

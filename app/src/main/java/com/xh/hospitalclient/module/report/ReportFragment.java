@@ -37,7 +37,7 @@ public class ReportFragment
         reportAdapter = new ReportAdapter();
         reportAdapter.setCallback(this);
         mPresenter.loadReportList(UserInfo.get(MyApplication.getInstance()).getUserId());
-    }//Todo: 数据交互
+    }
 
     //这一步卡了很久 想想最后还是放在io线程里执行了 否则无法setAdapter
     @Override

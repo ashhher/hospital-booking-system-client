@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 
 import com.trello.rxlifecycle.components.support.RxFragment;
 import com.xh.hospitalclient.R;
+import com.xh.hospitalclient.widget.LoadingDialog;
 import com.xh.hospitalclient.widget.ToastUtil;
 
 import butterknife.ButterKnife;
@@ -23,6 +24,7 @@ public abstract class BaseFragment<V, T extends BaseFragmentPresenter<V>>
 
     protected T mPresenter;
     protected Unbinder unbinder;
+    protected LoadingDialog loadingDialog;
 
     protected abstract int getLayoutId();
     protected abstract void initView();
@@ -42,12 +44,13 @@ public abstract class BaseFragment<V, T extends BaseFragmentPresenter<V>>
 
     @Override
     public void showLoading() {
-//Todo: show loading in base fragment
+        loadingDialog = new LoadingDialog(getContext());
+        loadingDialog.show();
     }
 
     @Override
     public void hideLoading() {
-//Todo: hide loading in base fragment
+        loadingDialog.close();
     }
 
     @Override

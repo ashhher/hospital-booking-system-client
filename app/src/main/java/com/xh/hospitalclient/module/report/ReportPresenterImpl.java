@@ -24,8 +24,7 @@ public class ReportPresenterImpl extends ReportContract.ReportPresenter {
 
     @Override
     void loadReportList(String userId) {
-        getView().showLoading();//Todo: hide loading
-
+        getView().showLoading();
         reportModel.getReportList(userId)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -34,6 +33,7 @@ public class ReportPresenterImpl extends ReportContract.ReportPresenter {
                     @Override
                     public void onSuccess(List<ReportBean> reportBeans) {
                         reportList = reportBeans;
+                        getView().hideLoading();
                         getView().showSuccess("load report list");
                         getView().bindListData(reportList);
                         getView().setAdapter();//这一步本应该是主线程执行 但目前放在这才能确保adapter数据被绑定
@@ -41,6 +41,7 @@ public class ReportPresenterImpl extends ReportContract.ReportPresenter {
                     @Override
                     public void onError(String errorMsg) {
                         Log.i(TAG, "onError: fail");
+                        getView().hideLoading();
                         getView().showError("load report list");
                     }
                 });
