@@ -1,4 +1,4 @@
-package com.xh.hospitalclient.module.registration.table;
+package com.xh.hospitalclient.module.registration.table.ui;
 
 import android.content.Context;
 import android.support.annotation.Nullable;

@@ -1,24 +1,21 @@
-package com.xh.hospitalclient.module.registration.department;
+package com.xh.hospitalclient.module.registration.department.ui;
 
-import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.xh.hospitalclient.R;
 import com.xh.hospitalclient.base.BaseActivity;
 import com.xh.hospitalclient.model.DeptBean;
+import com.xh.hospitalclient.module.registration.department.DeptContract;
+import com.xh.hospitalclient.module.registration.department.DeptPresenterImpl;
 
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 public class DeptActivity
         extends BaseActivity<DeptContract.DeptView, DeptPresenterImpl>
-        implements DeptContract.DeptView, FatherDeptAdapter.FatherDeptCallback{
+        implements DeptContract.DeptView, FatherDeptAdapter.FatherDeptCallback {
     @BindView(R.id.rv_dept_father)
     RecyclerView rvDeptFather;
     @BindView(R.id.rv_dept)

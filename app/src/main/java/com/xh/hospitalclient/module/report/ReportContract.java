@@ -24,7 +24,7 @@ public interface ReportContract {
     }
 
     abstract class ReportPresenter extends BaseFragmentPresenter<ReportView> {
-        abstract void loadReportList(String userId);
+        public abstract void loadReportList(String userId);
         public ReportPresenter(LifecycleProvider<FragmentEvent> provider) {
             super(provider);
         }

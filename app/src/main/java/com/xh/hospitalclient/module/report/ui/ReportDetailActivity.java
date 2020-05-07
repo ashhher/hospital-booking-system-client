@@ -1,4 +1,4 @@
-package com.xh.hospitalclient.module.report;
+package com.xh.hospitalclient.module.report.ui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

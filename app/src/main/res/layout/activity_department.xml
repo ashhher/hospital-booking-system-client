@@ -7,7 +7,7 @@
     android:paddingTop="10sp"
     android:layout_weight="1"
     android:background="@color/color_107"
-    tools:context=".module.registration.department.DeptActivity">
+    tools:context=".module.registration.department.ui.DeptActivity">
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rv_dept_father"

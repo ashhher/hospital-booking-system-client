@@ -28,7 +28,7 @@ public class DeptPresenterImpl extends DeptContract.DeptPresenter {
     }
 
     @Override
-    void loadDeptList() {
+    public void loadDeptList() {
         deptModel.getDeptList()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -64,13 +64,13 @@ public class DeptPresenterImpl extends DeptContract.DeptPresenter {
     }
 
     @Override
-    void setDeptList(String father) {
+    public void setDeptList(String father) {
         getView().bindDeptListData( deptModel.getDeptListByFather(father));
         getView().notifyDataChanged();
     }
 
     @Override
-    List<String> getFather(List<DeptBean> deptList) {
+    public List<String> getFather(List<DeptBean> deptList) {
         List<String> fatherDeptList = new ArrayList<String>();
         for(DeptBean deptBean : deptList) {
             fatherDeptList.add(deptBean.getDeptFather());

@@ -10,7 +10,7 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 
 import com.xh.hospitalclient.R;
-import com.xh.hospitalclient.module.registration.department.DeptActivity;
+import com.xh.hospitalclient.module.registration.department.ui.DeptActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

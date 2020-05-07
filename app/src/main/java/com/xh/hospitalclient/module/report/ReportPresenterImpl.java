@@ -23,7 +23,7 @@ public class ReportPresenterImpl extends ReportContract.ReportPresenter {
     private Realm realm;
 
     @Override
-    void loadReportList(String userId) {
+    public void loadReportList(String userId) {
         getView().showLoading();
         reportModel.getReportList(userId)
                 .subscribeOn(Schedulers.io())
@@ -47,7 +47,7 @@ public class ReportPresenterImpl extends ReportContract.ReportPresenter {
                 });
     }
 
-    ReportPresenterImpl(LifecycleProvider<FragmentEvent> provider) {
+    public ReportPresenterImpl(LifecycleProvider<FragmentEvent> provider) {
         super(provider);
         reportModel = ReportModelImpl.getInstance();
         reportModel.getRealm();

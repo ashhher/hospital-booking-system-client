@@ -1,4 +1,4 @@
-package com.xh.hospitalclient.module.registration.department;
+package com.xh.hospitalclient.module.registration.department.ui;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -11,7 +11,6 @@ import android.widget.TextView;
 
 import com.xh.hospitalclient.R;
 import com.xh.hospitalclient.base.BaseViewHolder;
-import com.xh.hospitalclient.model.DeptBean;
 
 import java.util.ArrayList;
 import java.util.List;

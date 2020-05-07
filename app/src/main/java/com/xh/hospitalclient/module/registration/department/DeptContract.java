@@ -28,9 +28,9 @@ public interface DeptContract {
         }
 
         abstract class DeptPresenter extends BaseActivityPresenter<DeptView> {
-            abstract void loadDeptList();
-            abstract void setDeptList(String father);
-            abstract List<String> getFather(List<DeptBean> deptList);
+            public abstract void loadDeptList();
+            public abstract void setDeptList(String father);
+            public abstract List<String> getFather(List<DeptBean> deptList);
             public DeptPresenter(LifecycleProvider<ActivityEvent> provider) {
                 super(provider);
             }

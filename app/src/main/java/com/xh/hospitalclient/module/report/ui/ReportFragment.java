@@ -1,4 +1,4 @@
-package com.xh.hospitalclient.module.report;
+package com.xh.hospitalclient.module.report.ui;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -8,6 +8,9 @@ import com.xh.hospitalclient.R;
 import com.xh.hospitalclient.base.BaseFragment;
 import com.xh.hospitalclient.model.ReportBean;
 import com.xh.hospitalclient.model.UserInfo;
+import com.xh.hospitalclient.module.report.ReportContract;
+import com.xh.hospitalclient.module.report.ReportPresenterImpl;
+import com.xh.hospitalclient.module.report.ui.ReportAdapter;
 
 import java.util.List;
 
@@ -15,7 +18,7 @@ import butterknife.BindView;
 
 public class ReportFragment
         extends BaseFragment<ReportContract.ReportView, ReportPresenterImpl>
-        implements ReportContract.ReportView,ReportAdapter.ReportCallBack{
+        implements ReportContract.ReportView, ReportAdapter.ReportCallBack{
     private static final String TAG = "ReportFragment";
 
     @BindView(R.id.rv_report)

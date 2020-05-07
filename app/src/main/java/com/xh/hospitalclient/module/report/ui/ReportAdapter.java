@@ -1,4 +1,4 @@
-package com.xh.hospitalclient.module.report;
+package com.xh.hospitalclient.module.report.ui;
 
 import android.content.Context;
 import android.content.Intent;

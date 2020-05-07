@@ -1,4 +1,4 @@
-package com.xh.hospitalclient.module.registration.department;
+package com.xh.hospitalclient.module.registration.department.ui;
 
 import android.content.Context;
 import android.content.Intent;
@@ -13,7 +13,7 @@ import android.widget.TextView;
 import com.xh.hospitalclient.R;
 import com.xh.hospitalclient.base.BaseViewHolder;
 import com.xh.hospitalclient.model.DeptBean;
-import com.xh.hospitalclient.module.registration.table.RegTableActivity;
+import com.xh.hospitalclient.module.registration.table.ui.RegTableActivity;
 
 import java.util.List;
 
@@ -67,7 +67,8 @@ public class DeptAdapter extends RecyclerView.Adapter<BaseViewHolder> {
         public void onBind(int position) {
             super.onBind(position);
             DeptBean department = departmentList.get(position);
-            final String deptName = departmentList.get(position).getDeptName();
+            final String deptName = department.getDeptName();
+            final String deptInfo = department.getDeptInfo();
             tvDept.setText(deptName);
 
             itemView.setOnClickListener(new View.OnClickListener() {
@@ -75,6 +76,8 @@ public class DeptAdapter extends RecyclerView.Adapter<BaseViewHolder> {
                 public void onClick(View v) {
                     Intent intent = new Intent();
                     intent.putExtra("departmentName",deptName);//传入科室名称
+                    intent.putExtra("departmentInfo",deptInfo);//传入科室信息
+
                     intent.setClass(context, RegTableActivity.class);
                     context.startActivity(intent);
 

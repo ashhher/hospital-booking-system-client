@@ -1,17 +1,9 @@
 package com.xh.hospitalclient.module;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.MenuItem;
 
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -20,13 +12,8 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.xh.hospitalclient.R;
 import com.xh.hospitalclient.module.home.HomeFragment;
-import com.xh.hospitalclient.module.report.ReportFragment;
+import com.xh.hospitalclient.module.report.ui.ReportFragment;
 import com.xh.hospitalclient.module.user.UserFragment;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import butterknife.BindView;
 
 public class UserMainActivity extends AppCompatActivity {
     private static final String TAG = "UserMainActivity";

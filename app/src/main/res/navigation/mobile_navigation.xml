@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/navigation_report"
-        android:name="com.xh.hospitalclient.module.report.ReportFragment"
+        android:name="com.xh.hospitalclient.module.report.ui.ReportFragment"
         android:label="@string/title_report"
         tools:layout="@layout/fragment_report" />
 

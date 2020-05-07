@@ -4,7 +4,8 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
 
     <dimen name="text_font">20sp</dimen>
-    <dimen name="text_font_small">20sp</dimen>
+    <dimen name="text_font_big">25sp</dimen>
+    <dimen name="text_font_small">18sp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="app_bar_height">200dp</dimen>
     <dimen name="item_width">200dp</dimen>
