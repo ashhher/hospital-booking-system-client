@@ -5,7 +5,7 @@ import android.support.v7.widget.RecyclerView;
 
 import com.xh.hospitalclient.R;
 import com.xh.hospitalclient.base.BaseActivity;
-import com.xh.hospitalclient.model.DeptBean;
+import com.xh.hospitalclient.model.Department;
 import com.xh.hospitalclient.module.registration.department.DeptContract;
 import com.xh.hospitalclient.module.registration.department.DeptPresenterImpl;
 
@@ -54,7 +54,7 @@ public class DeptActivity
     }
 
     @Override
-    public void bindDeptListData(List<DeptBean> deptList) {
+    public void bindDeptListData(List<Department> deptList) {
         deptAdapter.setDeptList(deptList);
     }
 

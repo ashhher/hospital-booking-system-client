@@ -1,12 +1,10 @@
-package com.xh.hospitalclient.module.registration.table.ui;
+package com.xh.hospitalclient.module.registration.schedule.ui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
 import com.xh.hospitalclient.R;
-
-import javax.xml.transform.Templates;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

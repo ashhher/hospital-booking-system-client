@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 import com.xh.hospitalclient.MyApplication;
 import com.xh.hospitalclient.R;
-import com.xh.hospitalclient.model.ReportBean;
+import com.xh.hospitalclient.model.Report;
 import com.xh.hospitalclient.model.UserInfo;
 import com.xh.hospitalclient.widget.LoadingDialog;
 
@@ -30,7 +30,7 @@ public class ReportDetailActivity extends AppCompatActivity {
     @BindView(R.id.tv_report_item_date)
     TextView tvDate;
 
-    ReportBean report;
+    Report report;
     LoadingDialog loadingDialog;
 
     @Override
@@ -47,7 +47,7 @@ public class ReportDetailActivity extends AppCompatActivity {
 
         Bundle bundle = getIntent().getExtras();
         if(bundle != null && bundle.getSerializable("reportDetail") != null) {
-            report = (ReportBean) bundle.getSerializable("reportDetail");
+            report = (Report) bundle.getSerializable("reportDetail");
             Log.i(TAG, "initData: " + report.toString());
         }
         tvTitle.setText(report.getRptTitle());

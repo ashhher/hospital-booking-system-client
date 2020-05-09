@@ -1,10 +1,8 @@
 package com.xh.hospitalclient.module.login;
 
-import com.xh.hospitalclient.config.APIService;
-import com.xh.hospitalclient.model.UserBean;
+import com.xh.hospitalclient.model.User;
 import com.xh.hospitalclient.net.RetrofitHelper;
 
-import io.realm.Realm;
 import rx.Observable;
 
 public class LoginModelImpl extends LoginContract.LoginModel {
@@ -18,7 +16,7 @@ public class LoginModelImpl extends LoginContract.LoginModel {
     }
 
     @Override
-    public Observable<UserBean> login(String username, String password) {
+    public Observable<User> login(String username, String password) {
         return getAPIService().loginRx(username,password);
     }
 

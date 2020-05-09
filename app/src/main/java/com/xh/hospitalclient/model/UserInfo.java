@@ -9,9 +9,9 @@ import static android.content.Context.MODE_PRIVATE;
 public class UserInfo {
     private static final String TAG = "UserInfo";
     private static final String FILE_NAME = "userInfo";
-    private static UserBean defalt = new UserBean();
+    private static User defalt = new User();
 
-    public static void set(Context context,UserBean user) {
+    public static void set(Context context, User user) {
         SharedPreferences sp = context.getSharedPreferences(FILE_NAME, MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
         editor.putString("userId",user.getUserId());
@@ -22,7 +22,7 @@ public class UserInfo {
         editor.apply();
     }
 
-    public static UserBean get(Context context) {
+    public static User get(Context context) {
         defalt.setUserId("--");
         defalt.setUserName("--");
         defalt.setUserPwd("--");
@@ -30,7 +30,7 @@ public class UserInfo {
         defalt.setUserSex(false);
 
         SharedPreferences sp = context.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
-        UserBean user = new UserBean();
+        User user = new User();
         user.setUserId(sp.getString("userId",defalt.getUserId()));
         user.setUserName(sp.getString("userName",defalt.getUserName()));
         user.setUserAge(sp.getInt("userAge",defalt.getUserAge()));

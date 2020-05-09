@@ -6,11 +6,10 @@ import android.support.v7.widget.RecyclerView;
 import com.xh.hospitalclient.MyApplication;
 import com.xh.hospitalclient.R;
 import com.xh.hospitalclient.base.BaseFragment;
-import com.xh.hospitalclient.model.ReportBean;
+import com.xh.hospitalclient.model.Report;
 import com.xh.hospitalclient.model.UserInfo;
 import com.xh.hospitalclient.module.report.ReportContract;
 import com.xh.hospitalclient.module.report.ReportPresenterImpl;
-import com.xh.hospitalclient.module.report.ui.ReportAdapter;
 
 import java.util.List;
 
@@ -55,7 +54,7 @@ public class ReportFragment
 
     //绑定数据到adapter
     @Override
-    public void bindListData(List<ReportBean> reportList) {
+    public void bindListData(List<Report> reportList) {
         reportAdapter.setReportList(reportList);
     }
     /*****************************************响应事件*********************************************/

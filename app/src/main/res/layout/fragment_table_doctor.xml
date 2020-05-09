@@ -3,12 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".module.registration.table.ui.TableDoctorFragment">
+    tools:context=".module.registration.schedule.ui.TableDoctorFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_doctor"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="doctor" />
+        android:paddingTop="10dp"/>
 
 </FrameLayout>

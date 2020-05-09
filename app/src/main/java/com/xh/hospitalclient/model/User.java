@@ -3,7 +3,7 @@ package com.xh.hospitalclient.model;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
-public class UserBean extends RealmObject {
+public class User extends RealmObject {
     @PrimaryKey
     private String userId;
     private String userPwd;

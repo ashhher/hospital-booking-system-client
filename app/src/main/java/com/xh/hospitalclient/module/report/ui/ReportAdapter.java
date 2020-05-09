@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.xh.hospitalclient.R;
 import com.xh.hospitalclient.base.BaseViewHolder;
-import com.xh.hospitalclient.model.ReportBean;
+import com.xh.hospitalclient.model.Report;
 
 import java.util.List;
 
@@ -25,11 +25,11 @@ public class ReportAdapter extends RecyclerView.Adapter<BaseViewHolder> {
     private static final String TAG = "ReportAdapter";
 
     private Context context;
-    private List<ReportBean> reportBeanList;
+    private List<Report> reportList;
     private ReportCallBack reportCallBack;
 
-//    public ReportAdapter(List<ReportBean> reportList) {
-//        reportBeanList = reportList;
+//    public ReportAdapter(List<Report> reportList) {
+//        reportList = reportList;
 //    }
 
     @NonNull
@@ -50,8 +50,8 @@ public class ReportAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
     @Override
     public int getItemCount() {
-        if (reportBeanList != null && reportBeanList.size() > 0) {
-            return reportBeanList.size();
+        if (reportList != null && reportList.size() > 0) {
+            return reportList.size();
         } else {
             return 0;
         }
@@ -61,8 +61,8 @@ public class ReportAdapter extends RecyclerView.Adapter<BaseViewHolder> {
         this.reportCallBack = reportCallBack;
     }
 
-    void setReportList(List<ReportBean> reportList) {
-        reportBeanList = reportList;
+    void setReportList(List<Report> reportList) {
+        this.reportList = reportList;
     }
 
     //callback函数，在fragment中实现
@@ -85,7 +85,7 @@ public class ReportAdapter extends RecyclerView.Adapter<BaseViewHolder> {
         @Override
         public void onBind(int position) {
             super.onBind(position);
-            final ReportBean report = reportBeanList.get(position);
+            final Report report = reportList.get(position);
             tvRptTitle.setText(report.getRptTitle());
             tvRptDate.setText(report.getRptDate());
 

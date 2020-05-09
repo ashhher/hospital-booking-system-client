@@ -14,9 +14,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".module.registration.table.ui.DeptDetailActivity"></activity>
+        <activity android:name=".module.registration.schedule.ui.DeptDetailActivity"></activity>
         <activity
-            android:name=".module.registration.table.ui.RegTableActivity"
+            android:name=".module.registration.schedule.ui.RegTableActivity"
             android:label="@string/title_activity_reg_table"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".module.report.ui.ReportDetailActivity" />

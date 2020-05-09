@@ -5,10 +5,9 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.xh.hospitalclient.R;
-import com.xh.hospitalclient.View.LVCircularRing;
+import com.xh.hospitalclient.widget.View.LVCircularRing;
 
 public class LoadingDialog {
     LVCircularRing mLoadingView;

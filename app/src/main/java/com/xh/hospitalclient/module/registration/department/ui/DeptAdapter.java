@@ -12,8 +12,8 @@ import android.widget.TextView;
 
 import com.xh.hospitalclient.R;
 import com.xh.hospitalclient.base.BaseViewHolder;
-import com.xh.hospitalclient.model.DeptBean;
-import com.xh.hospitalclient.module.registration.table.ui.RegTableActivity;
+import com.xh.hospitalclient.model.Department;
+import com.xh.hospitalclient.module.registration.schedule.ui.RegTableActivity;
 
 import java.util.List;
 
@@ -24,7 +24,7 @@ public class DeptAdapter extends RecyclerView.Adapter<BaseViewHolder> {
     private static final String TAG = "DeptAdapter";
 
     private Context context;
-    private List<DeptBean> departmentList;
+    private List<Department> departmentList;
 
     @NonNull
     @Override
@@ -50,7 +50,7 @@ public class DeptAdapter extends RecyclerView.Adapter<BaseViewHolder> {
         }
     }
 
-    void setDeptList(List<DeptBean> departmentList) {
+    void setDeptList(List<Department> departmentList) {
         this.departmentList = departmentList;
     }
 
@@ -66,7 +66,7 @@ public class DeptAdapter extends RecyclerView.Adapter<BaseViewHolder> {
         @Override
         public void onBind(int position) {
             super.onBind(position);
-            DeptBean department = departmentList.get(position);
+            Department department = departmentList.get(position);
             final String deptName = department.getDeptName();
             final String deptInfo = department.getDeptInfo();
             tvDept.setText(deptName);

@@ -1,4 +1,4 @@
-package com.xh.hospitalclient.module.registration.table.ui;
+package com.xh.hospitalclient.module.registration.schedule.ui;
 
 import android.content.Intent;
 import android.os.Bundle;

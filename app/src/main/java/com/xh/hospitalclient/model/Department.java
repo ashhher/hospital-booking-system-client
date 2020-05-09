@@ -3,7 +3,7 @@ package com.xh.hospitalclient.model;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
-public class DeptBean extends RealmObject {
+public class Department extends RealmObject {
     @PrimaryKey
     private int deptId;
     private String deptName;
@@ -44,7 +44,7 @@ public class DeptBean extends RealmObject {
 
     @Override
     public String toString() {
-        return "DeptBean{" +
+        return "Department{" +
                 "deptId=" + deptId +
                 ", deptName='" + deptName + '\'' +
                 ", deptFather='" + deptFather + '\'' +

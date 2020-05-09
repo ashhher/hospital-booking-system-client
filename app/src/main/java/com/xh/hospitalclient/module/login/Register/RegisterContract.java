@@ -5,13 +5,13 @@ import com.trello.rxlifecycle.android.ActivityEvent;
 import com.xh.hospitalclient.base.BaseModel;
 import com.xh.hospitalclient.base.BaseActivityPresenter;
 import com.xh.hospitalclient.base.BaseView;
-import com.xh.hospitalclient.model.UserBean;
+import com.xh.hospitalclient.model.User;
 
 import rx.Observable;
 
 public interface RegisterContract {
     abstract class RegisterModel extends BaseModel{
-        public abstract Observable<UserBean> register(String username, String password, String name, int age, boolean sex);
+        public abstract Observable<User> register(String username, String password, String name, int age, boolean sex);
     }
 
     interface RegisterView extends BaseView {

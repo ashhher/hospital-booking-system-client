@@ -1,4 +1,4 @@
-package com.xh.hospitalclient.View;
+package com.xh.hospitalclient.widget.View;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;

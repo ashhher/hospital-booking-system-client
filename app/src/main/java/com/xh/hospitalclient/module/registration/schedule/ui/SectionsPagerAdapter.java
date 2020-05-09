@@ -1,4 +1,4 @@
-package com.xh.hospitalclient.module.registration.table.ui;
+package com.xh.hospitalclient.module.registration.schedule.ui;
 
 import android.content.Context;
 import android.support.annotation.Nullable;

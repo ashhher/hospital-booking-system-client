@@ -5,7 +5,7 @@ import android.util.Log;
 import com.trello.rxlifecycle.LifecycleProvider;
 import com.trello.rxlifecycle.android.ActivityEvent;
 import com.xh.hospitalclient.MyApplication;
-import com.xh.hospitalclient.model.UserBean;
+import com.xh.hospitalclient.model.User;
 import com.xh.hospitalclient.model.UserInfo;
 import com.xh.hospitalclient.net.RetrofitSubscriber;
 
@@ -25,12 +25,12 @@ public class RegisterPresenterImpl extends RegisterContract.RegisterPresenter {
         registerModel.register(username, password, name, temp_age, temp_sex)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .compose(getProvider().<UserBean>bindUntilEvent(ActivityEvent.DESTROY))
-                .subscribe(new RetrofitSubscriber<UserBean>() {
+                .compose(getProvider().<User>bindUntilEvent(ActivityEvent.DESTROY))
+                .subscribe(new RetrofitSubscriber<User>() {
                     @Override
-                    public void onSuccess(UserBean userBean) {
-                        Log.i(TAG, "onSuccess: " + userBean.toString());
-                        UserInfo.set(MyApplication.getInstance(),userBean);
+                    public void onSuccess(User user) {
+                        Log.i(TAG, "onSuccess: " + user.toString());
+                        UserInfo.set(MyApplication.getInstance(), user);
                         getView().hideLoading();
                         getView().showSuccess("register");
                         getView().toMainActivity();

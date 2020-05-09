@@ -5,13 +5,13 @@ import com.trello.rxlifecycle.android.ActivityEvent;
 import com.xh.hospitalclient.base.BaseModel;
 import com.xh.hospitalclient.base.BaseActivityPresenter;
 import com.xh.hospitalclient.base.BaseView;
-import com.xh.hospitalclient.model.UserBean;
+import com.xh.hospitalclient.model.User;
 
 import rx.Observable;
 
 public interface LoginContract {
     abstract class LoginModel extends BaseModel{
-        abstract Observable<UserBean> login(String username, String password);
+        abstract Observable<User> login(String username, String password);
     }
 
     interface LoginView extends BaseView {

@@ -9,7 +9,7 @@
     android:padding="20dp"
     android:orientation="vertical">
 
-    <com.xh.hospitalclient.View.LVCircularRing
+    <com.xh.hospitalclient.widget.View.LVCircularRing
         android:id="@+id/lv_circularring"
         android:layout_width="50dp"
         android:layout_height="50dp"/>

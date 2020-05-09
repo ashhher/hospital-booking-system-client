@@ -1,12 +1,10 @@
 package com.xh.hospitalclient.module.report;
 
-import com.xh.hospitalclient.config.APIService;
-import com.xh.hospitalclient.model.ReportBean;
+import com.xh.hospitalclient.model.Report;
 import com.xh.hospitalclient.net.RetrofitHelper;
 
 import java.util.List;
 
-import io.realm.RealmResults;
 import rx.Observable;
 
 public class ReportModelImpl extends ReportContract.ReportModel {
@@ -20,7 +18,7 @@ public class ReportModelImpl extends ReportContract.ReportModel {
     }
 
     @Override
-    Observable<List<ReportBean>> getReportList(String userId) {
+    Observable<List<Report>> getReportList(String userId) {
         return getAPIService().getReportListRx(userId);
     }
 

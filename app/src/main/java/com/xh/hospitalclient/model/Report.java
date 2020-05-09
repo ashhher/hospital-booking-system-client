@@ -6,7 +6,7 @@ import java.util.Date;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
-public class ReportBean extends RealmObject implements Serializable {
+public class Report extends RealmObject implements Serializable {
     @PrimaryKey
     private int rptId;
     private String userId;

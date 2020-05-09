@@ -1,19 +1,16 @@
 package com.xh.hospitalclient.module.login;
 
-import android.content.SharedPreferences;
 import android.util.Log;
 
 import com.trello.rxlifecycle.LifecycleProvider;
 import com.trello.rxlifecycle.android.ActivityEvent;
 import com.xh.hospitalclient.MyApplication;
-import com.xh.hospitalclient.model.UserBean;
+import com.xh.hospitalclient.model.User;
 import com.xh.hospitalclient.model.UserInfo;
 import com.xh.hospitalclient.net.RetrofitSubscriber;
 
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
-
-import static android.content.Context.MODE_PRIVATE;
 
 public class LoginPresenterImpl extends LoginContract.LoginPresenter {
     private static final String TAG = "LoginActivityPresenter";
@@ -26,14 +23,14 @@ public class LoginPresenterImpl extends LoginContract.LoginPresenter {
         loginModel.login(username, password)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .compose(getProvider().<UserBean>bindUntilEvent(ActivityEvent.DESTROY))
-                .subscribe(new RetrofitSubscriber<UserBean>() {
+                .compose(getProvider().<User>bindUntilEvent(ActivityEvent.DESTROY))
+                .subscribe(new RetrofitSubscriber<User>() {
 
                     @Override
-                    public void onSuccess(UserBean userBean){
-                        Log.i(TAG, "onSuccess: " + userBean.toString());
+                    public void onSuccess(User user){
+                        Log.i(TAG, "onSuccess: " + user.toString());
                         //放入缓存
-                        UserInfo.set(MyApplication.getInstance(),userBean);
+                        UserInfo.set(MyApplication.getInstance(), user);
                         getView().hideLoading();
                         getView().showSuccess("登录");
                         getView().toMainActivity();

@@ -4,7 +4,7 @@ import android.util.Log;
 
 import com.trello.rxlifecycle.LifecycleProvider;
 import com.trello.rxlifecycle.android.ActivityEvent;
-import com.xh.hospitalclient.model.DeptBean;
+import com.xh.hospitalclient.model.Department;
 import com.xh.hospitalclient.net.RetrofitSubscriber;
 
 import java.util.ArrayList;
@@ -19,7 +19,7 @@ public class DeptPresenterImpl extends DeptContract.DeptPresenter {
     private static final String TAG = "DeptPresenterImpl";
 
     private DeptModelImpl deptModel;
-    private List<DeptBean> deptList;
+    private List<Department> deptList;
 
     public DeptPresenterImpl(LifecycleProvider<ActivityEvent> provider) {
         super(provider);
@@ -32,12 +32,12 @@ public class DeptPresenterImpl extends DeptContract.DeptPresenter {
         deptModel.getDeptList()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .compose(getProvider().<List<DeptBean>>bindUntilEvent(ActivityEvent.DESTROY))
-                .subscribe(new RetrofitSubscriber<List<DeptBean>>() {
+                .compose(getProvider().<List<Department>>bindUntilEvent(ActivityEvent.DESTROY))
+                .subscribe(new RetrofitSubscriber<List<Department>>() {
                     @Override
-                    public void onSuccess(List<DeptBean> deptBeans) {
-                        deptList = deptBeans;
-                        deptModel.addDeptList(deptBeans,new Realm.Transaction.OnSuccess() {
+                    public void onSuccess(List<Department> departments) {
+                        deptList = departments;
+                        deptModel.addDeptList(departments,new Realm.Transaction.OnSuccess() {
                             @Override
                             public void onSuccess() {
                                 Log.i(TAG, "onSuccess: add department to realm success");
@@ -70,10 +70,10 @@ public class DeptPresenterImpl extends DeptContract.DeptPresenter {
     }
 
     @Override
-    public List<String> getFather(List<DeptBean> deptList) {
+    public List<String> getFather(List<Department> deptList) {
         List<String> fatherDeptList = new ArrayList<String>();
-        for(DeptBean deptBean : deptList) {
-            fatherDeptList.add(deptBean.getDeptFather());
+        for(Department department : deptList) {
+            fatherDeptList.add(department.getDeptFather());
         }
         HashSet set = new HashSet(fatherDeptList);
         fatherDeptList.clear();

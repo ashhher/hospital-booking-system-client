@@ -3,15 +3,13 @@ package com.xh.hospitalclient.module.report;
 import android.util.Log;
 
 import com.trello.rxlifecycle.LifecycleProvider;
-import com.trello.rxlifecycle.android.ActivityEvent;
 import com.trello.rxlifecycle.android.FragmentEvent;
-import com.xh.hospitalclient.model.ReportBean;
+import com.xh.hospitalclient.model.Report;
 import com.xh.hospitalclient.net.RetrofitSubscriber;
 
 import java.util.List;
 
 import io.realm.Realm;
-import io.realm.RealmResults;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
@@ -19,8 +17,7 @@ public class ReportPresenterImpl extends ReportContract.ReportPresenter {
     private static final String TAG = "ReportPresenter";
     private ReportModelImpl reportModel;
 
-    private List<ReportBean> reportList;
-    private Realm realm;
+    private List<Report> reportList;
 
     @Override
     public void loadReportList(String userId) {
@@ -28,11 +25,11 @@ public class ReportPresenterImpl extends ReportContract.ReportPresenter {
         reportModel.getReportList(userId)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .compose(getProvider().<List<ReportBean>>bindUntilEvent(FragmentEvent.DESTROY))
-                .subscribe(new RetrofitSubscriber<List<ReportBean>>() {
+                .compose(getProvider().<List<Report>>bindUntilEvent(FragmentEvent.DESTROY))
+                .subscribe(new RetrofitSubscriber<List<Report>>() {
                     @Override
-                    public void onSuccess(List<ReportBean> reportBeans) {
-                        reportList = reportBeans;
+                    public void onSuccess(List<Report> reports) {
+                        reportList = reports;
                         getView().hideLoading();
                         getView().showSuccess("load report list");
                         getView().bindListData(reportList);

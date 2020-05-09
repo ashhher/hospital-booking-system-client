@@ -1,4 +1,4 @@
-package com.xh.hospitalclient.module.registration.table.ui;
+package com.xh.hospitalclient.module.registration.schedule.ui;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 
 import com.xh.hospitalclient.R;
 
-public class TableDoctorFragment extends Fragment {
+public class TableDateFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -19,7 +19,7 @@ public class TableDoctorFragment extends Fragment {
     private String mParam2;
 
 
-    public TableDoctorFragment() {
+    public TableDateFragment() {
         // Required empty public constructor
     }
 
@@ -29,11 +29,11 @@ public class TableDoctorFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment TableDoctorFragment.
+     * @return A new instance of fragment TableDateFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static TableDoctorFragment newInstance(String param1, String param2) {
-        TableDoctorFragment fragment = new TableDoctorFragment();
+    public static TableDateFragment newInstance(String param1, String param2) {
+        TableDateFragment fragment = new TableDateFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -54,7 +54,7 @@ public class TableDoctorFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_table_doctor, container, false);
+        return inflater.inflate(R.layout.fragment_table_date, container, false);
     }
 
 }
