@@ -10,16 +10,21 @@ import com.xh.hospitalclient.model.Schedule;
 
 import java.util.List;
 
+import io.realm.Realm;
+import io.realm.RealmResults;
 import rx.Observable;
 
 public interface SchContract {
     abstract class SchModel extends BaseModel {
-        abstract Observable<List<Schedule>> loadSchListByDept(int deptId);
+        public abstract Observable<List<Schedule>> loadSchListByDept(int deptId);
         abstract Observable<List<Doctor>> loadDrListByDept(int deptId);
+        abstract void addSchList(List<Schedule> scheduleList, Realm.Transaction.OnSuccess onSuccess, Realm.Transaction.OnError onError);
+        abstract void addDrList(List<Doctor> doctorList, Realm.Transaction.OnSuccess onSuccess, Realm.Transaction.OnError onError);
+
     }
 
     interface SchView extends BaseView {
-        void bindSchListData(List<Schedule> scheduleList);
+        void bindSchListData(List<String> date);
         void bindDrListData(List<Doctor> doctorList);
         void notifyDataChanged();
         void setAdapter();
@@ -28,6 +33,7 @@ public interface SchContract {
     abstract class SchPresenter extends BaseFragmentPresenter<SchView> {
         public abstract void initSchList(int deptId);
         public abstract void initDrList(int deptId);
+        public abstract List<String> getDate(List<Schedule> scheduleList);
         public SchPresenter(LifecycleProvider<FragmentEvent> provider) {
             super(provider);
         }

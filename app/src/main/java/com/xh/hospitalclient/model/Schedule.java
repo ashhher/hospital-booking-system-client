@@ -1,10 +1,12 @@
 package com.xh.hospitalclient.model;
 
+import java.io.Serializable;
+
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
 
-public class Schedule extends RealmObject {
+public class Schedule extends RealmObject{
     @PrimaryKey
     private int schId;
     private int drId;

@@ -8,6 +8,9 @@ import com.xh.hospitalclient.model.Doctor;
 import com.xh.hospitalclient.model.Schedule;
 import com.xh.hospitalclient.net.RetrofitSubscriber;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 
 import io.realm.Realm;
@@ -45,10 +48,22 @@ public class SchPresenterImpl extends SchContract.SchPresenter {
                     @Override
                     public void onSuccess(List<Schedule> schedules) {
                         scheduleList = schedules;
+                        schModel.addSchList(schedules,new Realm.Transaction.OnSuccess() {
+                            @Override
+                            public void onSuccess() {
+                                Log.i(TAG, "onSuccess: add schedule to realm success");
+                            }
+                        }, new Realm.Transaction.OnError() {
+                            @Override
+                            public void onError(Throwable error) {
+                                Log.i(TAG, "onError: add schedule to realm fail");
+                            }
+                        });
+
                         getView().hideLoading();
                         getView().showSuccess("load schedule list");
-                        getView().bindSchListData(scheduleList);
-                        getView().setAdapter();//这一步本应该是主线程执行 但目前放在这才能确保adapter数据被绑定
+                        getView().bindSchListData(getDate(scheduleList));
+//                        getView().setAdapter();//这一步本应该是主线程执行 但目前放在这才能确保adapter数据被绑定
                     }
                     @Override
                     public void onError(String errorMsg) {
@@ -70,9 +85,21 @@ public class SchPresenterImpl extends SchContract.SchPresenter {
                     @Override
                     public void onSuccess(List<Doctor> doctors) {
                         doctorList = doctors;
+                        schModel.addDrList(doctors,new Realm.Transaction.OnSuccess() {
+                            @Override
+                            public void onSuccess() {
+                                Log.i(TAG, "onSuccess: add doctor to realm success");
+                            }
+                        }, new Realm.Transaction.OnError() {
+                            @Override
+                            public void onError(Throwable error) {
+                                Log.i(TAG, "onError: add doctor to realm fail");
+                            }
+                        });
                         getView().hideLoading();
                         getView().showSuccess("load doctor list");
                         getView().bindDrListData(doctorList);
+                        Log.i(TAG, "onSuccess: " + doctorList.toString());
                         getView().setAdapter();//这一步本应该是主线程执行 但目前放在这才能确保adapter数据被绑定
                     }
                     @Override
@@ -83,5 +110,18 @@ public class SchPresenterImpl extends SchContract.SchPresenter {
                     }
                 });
 
+    }
+
+    @Override
+    public List<String> getDate(List<Schedule> scheduleList) {
+        List<String> dateList = new ArrayList<String>();
+        for(Schedule schedule : scheduleList) {
+            dateList.add(schedule.getSchDate());
+        }
+        HashSet set = new HashSet(dateList);
+        dateList.clear();
+        dateList.addAll(set);
+        Collections.sort(dateList);
+        return dateList;
     }
 }

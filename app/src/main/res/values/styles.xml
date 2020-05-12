@@ -32,4 +32,14 @@
         <item name="android:textSize">@dimen/text_font</item>
     </style>
 
+    <style name="MyCustomTabLayout" parent="Widget.Design.TabLayout">
+        <item name="tabIndicatorColor">@color/GreenDark</item>
+        <item name="tabIndicatorHeight">2.5dp</item>
+        <item name="tabPaddingStart">12dp</item>
+        <item name="tabPaddingEnd">12dp</item>
+        <item name="tabBackground">?attr/selectableItemBackground</item>
+<!--        <item name="tabTextAppearance">@style/MyCustomTabTextAppearance</item>-->
+        <item name="tabSelectedTextColor">?android:textColorPrimary</item>
+    </style>
+
 </resources>

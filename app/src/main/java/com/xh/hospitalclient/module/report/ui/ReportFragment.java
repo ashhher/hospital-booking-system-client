@@ -52,15 +52,15 @@ public class ReportFragment
         return new ReportPresenterImpl(this);
     }
 
+    /*****************************************业务方法*********************************************/
+
     //绑定数据到adapter
     @Override
     public void bindListData(List<Report> reportList) {
         reportAdapter.setReportList(reportList);
     }
-    /*****************************************响应事件*********************************************/
 
-
-    /**************************************其他工具函数********************************************/
+    /**************************************其他工具方法********************************************/
     @Override
     public void notifyDataChanged() {
         reportAdapter.notifyDataSetChanged();

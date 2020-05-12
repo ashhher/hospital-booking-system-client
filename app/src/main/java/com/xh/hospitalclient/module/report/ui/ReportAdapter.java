@@ -28,9 +28,6 @@ public class ReportAdapter extends RecyclerView.Adapter<BaseViewHolder> {
     private List<Report> reportList;
     private ReportCallBack reportCallBack;
 
-//    public ReportAdapter(List<Report> reportList) {
-//        reportList = reportList;
-//    }
 
     @NonNull
     @Override
@@ -57,12 +54,12 @@ public class ReportAdapter extends RecyclerView.Adapter<BaseViewHolder> {
         }
     }
 
-    public void setCallback(ReportCallBack reportCallBack) {
-        this.reportCallBack = reportCallBack;
-    }
-
     void setReportList(List<Report> reportList) {
         this.reportList = reportList;
+    }
+
+    public void setCallback(ReportCallBack reportCallBack) {
+        this.reportCallBack = reportCallBack;
     }
 
     //callback函数，在fragment中实现

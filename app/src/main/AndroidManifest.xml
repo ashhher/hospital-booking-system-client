@@ -5,6 +5,8 @@
     <uses-permission android:name="android.permission.INTERNET" /> <!-- 允许程序访问WiFi网络信息 -->
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- 允许程序获取网络状态 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:name=".MyApplication"
@@ -14,7 +16,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".module.registration.schedule.ui.DeptDetailActivity"></activity>
+        <activity android:name=".module.registration.reg.DoctorDetailActivity"></activity>
+        <activity android:name=".module.registration.schedule.ui.DeptDetailActivity" />
         <activity
             android:name=".module.registration.schedule.ui.RegTableActivity"
             android:label="@string/title_activity_reg_table"
@@ -23,9 +26,7 @@
         <activity
             android:name=".module.UserMainActivity"
             android:label="@string/title_activity_user_main" />
-        <activity android:name=".module.login.LoginActivity">
-
-        </activity>
+        <activity android:name=".module.login.LoginActivity"></activity>
         <activity android:name=".module.login.Register.RegisterActivity" />
         <activity android:name=".module.registration.department.ui.DeptActivity">
             <intent-filter>

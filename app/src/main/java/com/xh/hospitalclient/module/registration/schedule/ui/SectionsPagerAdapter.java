@@ -8,6 +8,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.xh.hospitalclient.R;
+import com.xh.hospitalclient.module.registration.schedule.ui.table.DoctorFragment;
+import com.xh.hospitalclient.module.registration.schedule.ui.table.ScheduleFragment;
 
 /**
  * A [FragmentPagerAdapter] that returns a fragment corresponding to
@@ -30,9 +32,9 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
         // Return a PlaceholderFragment (defined as a static inner class below).
 //        return PlaceholderFragment.newInstance(position + 1);
         if(position == 0) {
-            return TableDoctorFragment.newInstance("1","1");
+            return DoctorFragment.newInstance();
         }
-        return TableDateFragment.newInstance("2","2");
+        return ScheduleFragment.newInstance();
     }
 
     @Nullable

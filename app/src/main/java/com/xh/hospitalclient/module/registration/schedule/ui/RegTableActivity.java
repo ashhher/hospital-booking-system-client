@@ -25,6 +25,7 @@ public class RegTableActivity extends AppCompatActivity {
     @BindView(R.id.iv_dept_detail)
     ImageView ivDeptDetail;
 
+    int id = 999;
     String title = "未绑定";
     String Info = "未绑定";
 
@@ -36,7 +37,8 @@ public class RegTableActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         Bundle bundle = getIntent().getExtras();
-        if(bundle != null && bundle.getSerializable("departmentName") != null && bundle.getSerializable("departmentInfo") != null) {
+        if(bundle != null && bundle.getSerializable("departmentId") != null && bundle.getSerializable("departmentName") != null && bundle.getSerializable("departmentInfo") != null) {
+            id = (int) bundle.getSerializable("departmentId");
             title = (String) bundle.getSerializable("departmentName");
             Info = (String) bundle.getSerializable("departmentInfo");
         }

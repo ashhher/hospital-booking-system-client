@@ -2,6 +2,7 @@ package com.xh.hospitalclient.module.registration.department.ui;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -14,6 +15,8 @@ import com.xh.hospitalclient.R;
 import com.xh.hospitalclient.base.BaseViewHolder;
 import com.xh.hospitalclient.model.Department;
 import com.xh.hospitalclient.module.registration.schedule.ui.RegTableActivity;
+import com.xh.hospitalclient.module.registration.schedule.ui.table.DoctorFragment;
+import com.xh.hospitalclient.module.registration.schedule.ui.table.ScheduleFragment;
 
 import java.util.List;
 
@@ -66,7 +69,8 @@ public class DeptAdapter extends RecyclerView.Adapter<BaseViewHolder> {
         @Override
         public void onBind(int position) {
             super.onBind(position);
-            Department department = departmentList.get(position);
+            final Department department = departmentList.get(position);
+            final int deptId = department.getDeptId();
             final String deptName = department.getDeptName();
             final String deptInfo = department.getDeptInfo();
             tvDept.setText(deptName);
@@ -75,6 +79,7 @@ public class DeptAdapter extends RecyclerView.Adapter<BaseViewHolder> {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent();
+                    intent.putExtra("departmentId",deptId);//传入科室ID
                     intent.putExtra("departmentName",deptName);//传入科室名称
                     intent.putExtra("departmentInfo",deptInfo);//传入科室信息
 
