@@ -1,6 +1,7 @@
 package com.xh.hospitalclient.module.registration.schedule.ui.table;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -15,6 +16,7 @@ import com.bumptech.glide.request.RequestOptions;
 import com.xh.hospitalclient.R;
 import com.xh.hospitalclient.base.BaseViewHolder;
 import com.xh.hospitalclient.model.Doctor;
+import com.xh.hospitalclient.module.registration.reg.DoctorDetailActivity;
 import com.xh.hospitalclient.utils.GlideApp;
 
 import java.util.List;
@@ -100,12 +102,12 @@ public class DoctorAdapter extends RecyclerView.Adapter<BaseViewHolder> {
                 @Override
                 public void onClick(View v) {
 
-//                    Intent intent = new Intent();
-//                    intent.putExtra("reportDetail",report);//此处要intent传递对象必须要使该bean implements Serializable
-//                    intent.setClass(context, ReportDetailActivity.class);
-//                    context.startActivity(intent);
+                    Intent intent = new Intent();
+                    intent.putExtra("drId",doctor.getDrId());
+                    intent.setClass(context, DoctorDetailActivity.class);
+                    context.startActivity(intent);
 
-                    Log.i(TAG, "onClick: doctor" + doctor.getDrName());
+                    Log.i(TAG, "to doctor: " + doctor.getDrName());
                 }
             });
         }

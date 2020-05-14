@@ -1,6 +1,7 @@
 package com.xh.hospitalclient.module.registration.schedule.ui.table;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -15,8 +16,10 @@ import com.xh.hospitalclient.R;
 import com.xh.hospitalclient.base.BaseViewHolder;
 import com.xh.hospitalclient.model.Doctor;
 import com.xh.hospitalclient.model.Schedule;
+import com.xh.hospitalclient.module.registration.reg.DoctorDetailActivity;
 import com.xh.hospitalclient.utils.GlideApp;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -87,26 +90,25 @@ public class ScheduleAdapter extends RecyclerView.Adapter<BaseViewHolder> {
                     .apply(requestOptions)
                     .into(ivAvatar);
 
-            List<Doctor> doctors;
-            Realm realm = Realm.getDefaultInstance();
+            List<Doctor> doctors = new ArrayList<>();
+            final Realm realm = Realm.getDefaultInstance();
             doctors = realm.where(Doctor.class)
                     .equalTo("drId",schedule.getDrId())
                     .findAll();
-            Doctor doctor = doctors.get(0);
-            tvDrName.setText(doctor.getDrName());//todo:查找医生信息
+            final Doctor doctor = doctors.get(0);
+            tvDrName.setText(doctor.getDrName());
             tvDrPos.setText(doctor.getDrPos());
             tvDrInfo.setText(doctor.getDrInfo());
-
+            realm.close();
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
-//                    Intent intent = new Intent();
-//                    intent.putExtra("reportDetail",report);//此处要intent传递对象必须要使该bean implements Serializable
-//                    intent.setClass(context, ReportDetailActivity.class);
-//                    context.startActivity(intent);
-
-                    Log.i(TAG, "onClick: doctor" + schedule.getSchId());
+                    Intent intent = new Intent();
+                    intent.putExtra("drId",doctor.getDrId());
+                    intent.setClass(context, DoctorDetailActivity.class);
+                    context.startActivity(intent);
+                    Log.i(TAG, "to doctor: " + doctor.getDrName());
                 }
             });
         }

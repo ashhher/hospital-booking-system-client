@@ -51,17 +51,24 @@ public class DoctorFragment
         rvDoctor.setLayoutManager(new LinearLayoutManager(getContext()));
         doctorAdapter = new DoctorAdapter();
         doctorAdapter.setCallback(this);
+
         Bundle bundle = getActivity().getIntent().getExtras();
         if(bundle != null && bundle.getSerializable("departmentId") != null) {
             deptId = (int) bundle.getSerializable("departmentId");
         }
+
         mPresenter.initDrList(deptId);
     }
 
     @Override
-    public void setAdapter() {
+    public void setDrAdapter() {
         rvDoctor.setAdapter(doctorAdapter);
         rvDoctor.addItemDecoration(new DividerItemDecoration(getContext(),DividerItemDecoration.VERTICAL));
+    }
+
+    @Override
+    public void setSchAdapter() {
+
     }
 
     @Override

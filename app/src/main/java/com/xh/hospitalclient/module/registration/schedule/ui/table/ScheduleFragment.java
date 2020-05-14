@@ -36,6 +36,7 @@ public class ScheduleFragment
     private List<String> dateList;
     private List<Fragment> fragments;
     int deptId;
+    FragmentPagerAdapter mAdapter;
 
     @BindView(R.id.tab_date)
     TabLayout tabDate;
@@ -60,6 +61,23 @@ public class ScheduleFragment
         if(bundle != null && bundle.getSerializable("departmentId") != null) {
             deptId = (int) bundle.getSerializable("departmentId");
         }
+
+        mAdapter = new FragmentPagerAdapter(getFragmentManager()) {
+            @Override
+            public Fragment getItem(int position) {
+                return fragments.get(position);
+            }
+            @Override
+            public int getCount() {
+                return fragments.size();
+            }
+            //ViewPager与TabLayout绑定后，这里获取到PageTitle就是Tab的Text
+            @Override
+            public CharSequence getPageTitle(int position) {
+                return dateList.get(position);
+            }
+        };
+
         mPresenter.initSchList(deptId);
     }
 
@@ -86,25 +104,6 @@ public class ScheduleFragment
             tabDate.addTab(tabDate.newTab().setText(dateList.get(i)));//添加tab选项
         }
 
-        FragmentPagerAdapter mAdapter = new FragmentPagerAdapter(getFragmentManager()) {
-            @Override
-            public Fragment getItem(int position) {
-                return fragments.get(position);
-            }
-            @Override
-            public int getCount() {
-                return fragments.size();
-            }
-            //ViewPager与TabLayout绑定后，这里获取到PageTitle就是Tab的Text
-            @Override
-            public CharSequence getPageTitle(int position) {
-                return dateList.get(position);
-            }
-        };
-
-        vpDate.setAdapter(mAdapter);
-        tabDate.setupWithViewPager(vpDate);//将TabLayout和ViewPager关联起来。
-        tabDate.setTabsFromPagerAdapter(mAdapter);//给Tabs设置适配器
     }
 
     @Override
@@ -118,7 +117,15 @@ public class ScheduleFragment
     }
 
     @Override
-    public void setAdapter() {
+    public void setDrAdapter() {
 
     }
+
+    @Override
+    public void setSchAdapter() {
+        vpDate.setAdapter(mAdapter);
+        tabDate.setupWithViewPager(vpDate);//将TabLayout和ViewPager关联起来。
+        tabDate.setTabsFromPagerAdapter(mAdapter);//给Tabs设置适配器
+    }
+
 }

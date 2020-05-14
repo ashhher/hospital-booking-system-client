@@ -27,7 +27,8 @@ public interface SchContract {
         void bindSchListData(List<String> date);
         void bindDrListData(List<Doctor> doctorList);
         void notifyDataChanged();
-        void setAdapter();
+        void setDrAdapter();
+        void setSchAdapter();
     }
 
     abstract class SchPresenter extends BaseFragmentPresenter<SchView> {

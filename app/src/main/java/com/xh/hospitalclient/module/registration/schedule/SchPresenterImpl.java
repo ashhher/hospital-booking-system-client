@@ -18,7 +18,7 @@ import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
 public class SchPresenterImpl extends SchContract.SchPresenter {
-    private static final String TAG = "SchPresenterImpl";
+    private static final String TAG = "DrSchPresenterImpl";
     private SchModelImpl schModel;
 
     private List<Schedule> scheduleList;
@@ -63,7 +63,7 @@ public class SchPresenterImpl extends SchContract.SchPresenter {
                         getView().hideLoading();
                         getView().showSuccess("load schedule list");
                         getView().bindSchListData(getDate(scheduleList));
-//                        getView().setAdapter();//这一步本应该是主线程执行 但目前放在这才能确保adapter数据被绑定
+                        getView().setSchAdapter();//这一步本应该是主线程执行 但目前放在这才能确保adapter数据被绑定
                     }
                     @Override
                     public void onError(String errorMsg) {
@@ -100,7 +100,7 @@ public class SchPresenterImpl extends SchContract.SchPresenter {
                         getView().showSuccess("load doctor list");
                         getView().bindDrListData(doctorList);
                         Log.i(TAG, "onSuccess: " + doctorList.toString());
-                        getView().setAdapter();//这一步本应该是主线程执行 但目前放在这才能确保adapter数据被绑定
+                        getView().setDrAdapter();//这一步本应该是主线程执行 但目前放在这才能确保adapter数据被绑定
                     }
                     @Override
                     public void onError(String errorMsg) {
