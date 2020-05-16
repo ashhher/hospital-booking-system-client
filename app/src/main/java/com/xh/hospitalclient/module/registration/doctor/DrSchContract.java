@@ -1,4 +1,4 @@
-package com.xh.hospitalclient.module.registration.reg;
+package com.xh.hospitalclient.module.registration.doctor;
 
 import com.trello.rxlifecycle.LifecycleProvider;
 import com.trello.rxlifecycle.android.ActivityEvent;

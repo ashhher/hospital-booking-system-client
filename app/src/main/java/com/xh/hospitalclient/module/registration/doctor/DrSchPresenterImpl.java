@@ -1,22 +1,14 @@
-package com.xh.hospitalclient.module.registration.reg;
+package com.xh.hospitalclient.module.registration.doctor;
 
 import android.util.Log;
 
 import com.trello.rxlifecycle.LifecycleProvider;
 import com.trello.rxlifecycle.android.ActivityEvent;
-import com.trello.rxlifecycle.android.FragmentEvent;
-import com.xh.hospitalclient.model.Doctor;
 import com.xh.hospitalclient.model.Schedule;
-import com.xh.hospitalclient.net.RetrofitSubscriber;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
 
 import io.realm.Realm;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
 
 public class DrSchPresenterImpl extends DrSchContract.DrSchPresenter {
     private static final String TAG = "DrSchPresenterImpl";

@@ -1,13 +1,9 @@
-package com.xh.hospitalclient.module.registration.reg;
+package com.xh.hospitalclient.module.registration.doctor;
 
-import android.support.design.widget.TabLayout;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,17 +12,13 @@ import com.xh.hospitalclient.R;
 import com.xh.hospitalclient.base.BaseActivity;
 import com.xh.hospitalclient.model.Department;
 import com.xh.hospitalclient.model.Doctor;
-import com.xh.hospitalclient.model.Report;
 import com.xh.hospitalclient.model.Schedule;
-import com.xh.hospitalclient.model.UserInfo;
 import com.xh.hospitalclient.utils.GlideApp;
 import com.xh.hospitalclient.widget.LoadingDialog;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import io.realm.Realm;
 
 public class DoctorDetailActivity

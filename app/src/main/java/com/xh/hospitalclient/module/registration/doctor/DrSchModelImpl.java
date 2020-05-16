@@ -1,13 +1,11 @@
-package com.xh.hospitalclient.module.registration.reg;
+package com.xh.hospitalclient.module.registration.doctor;
 
-import com.xh.hospitalclient.model.Doctor;
 import com.xh.hospitalclient.model.Schedule;
 import com.xh.hospitalclient.net.RetrofitHelper;
 
 import java.util.List;
 
 import io.realm.Realm;
-import rx.Observable;
 
 public class DrSchModelImpl extends DrSchContract.DrSchModel {
     private static DrSchModelImpl drSchModel;

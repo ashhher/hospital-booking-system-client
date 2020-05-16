@@ -16,7 +16,7 @@ import com.xh.hospitalclient.R;
 import com.xh.hospitalclient.base.BaseViewHolder;
 import com.xh.hospitalclient.model.Doctor;
 import com.xh.hospitalclient.model.Schedule;
-import com.xh.hospitalclient.module.registration.reg.DoctorDetailActivity;
+import com.xh.hospitalclient.module.registration.doctor.DoctorDetailActivity;
 import com.xh.hospitalclient.utils.GlideApp;
 
 import java.util.ArrayList;
