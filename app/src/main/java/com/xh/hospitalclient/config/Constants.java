@@ -10,6 +10,7 @@ public class Constants {
         public static final String getDepartmentList = "department/getAllDept";
         public static final String getDoctorList = "doctor/getDrByDept";
         public static final String getScheduleList = "schedule/getSchByDept";
+        public static final String registration = "registration/newRegister";
 
     }
 }

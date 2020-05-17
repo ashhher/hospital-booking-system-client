@@ -1,6 +1,7 @@
 package com.xh.hospitalclient.module.registration.doctor;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 import com.xh.hospitalclient.R;
 import com.xh.hospitalclient.base.BaseViewHolder;
 import com.xh.hospitalclient.model.Schedule;
+import com.xh.hospitalclient.module.registration.order.OrderActivity;
 
 import java.util.List;
 
@@ -54,6 +56,8 @@ public class DrSchAdapter extends RecyclerView.Adapter<BaseViewHolder> {
     public class ViewHolder extends BaseViewHolder {
         @BindView(R.id.tv_sch_date)
         TextView tvSchDate;
+        @BindView(R.id.tv_to_register)
+        TextView tvToRegister;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -64,8 +68,17 @@ public class DrSchAdapter extends RecyclerView.Adapter<BaseViewHolder> {
         public void onBind(int position) {
             super.onBind(position);
             final Schedule schedule = scheduleList.get(position);
-
             tvSchDate.setText(schedule.getSchDate());
+
+            tvToRegister.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent();
+                    intent.putExtra("schId",schedule.getSchId());
+                    intent.setClass(context, OrderActivity.class);
+                    context.startActivity(intent);
+                }
+            });
         }
 
         @Override

@@ -2,6 +2,7 @@ package com.xh.hospitalclient.config;
 
 import com.xh.hospitalclient.model.Department;
 import com.xh.hospitalclient.model.Doctor;
+import com.xh.hospitalclient.model.Registration;
 import com.xh.hospitalclient.model.Report;
 import com.xh.hospitalclient.model.Schedule;
 import com.xh.hospitalclient.model.User;
@@ -34,5 +35,8 @@ public interface APIService {
     //获取科室排班表
     @GET(Constants.UrlOrigin.getScheduleList)
     Observable<List<Schedule>> getScheduleListRx(@Query("deptId") int deptId);
+    //挂号
+    @POST(Constants.UrlOrigin.registration)
+    Observable<Registration> registrationRx(@Query("userId") String userId, @Query("schId") int schId);
 
 }

@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="GreenLightLight">#A4CECA</color>
     <color name="GreenLight">#009688</color>
     <color name="GreenDark">#00574B</color>
     <color name="White">#fff</color>
     <color name="Gray">#888888</color>
     <color name="GrayLight">#dddddd</color>
     <color name="GrayDark">#666666</color>
+    <color name="YellowLight">#F1E6AE</color>
 
     <color name="color_100">#222222</color>
     <color name="color_101">#555555</color>

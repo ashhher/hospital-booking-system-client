@@ -3,7 +3,7 @@ package com.xh.hospitalclient.model;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
-public class User extends RealmObject {
+public class User extends RealmObject {//todo:添加当前挂号次数
     @PrimaryKey
     private String userId;
     private String userPwd;

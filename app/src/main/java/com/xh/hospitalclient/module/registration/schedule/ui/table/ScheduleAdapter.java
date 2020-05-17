@@ -17,6 +17,7 @@ import com.xh.hospitalclient.base.BaseViewHolder;
 import com.xh.hospitalclient.model.Doctor;
 import com.xh.hospitalclient.model.Schedule;
 import com.xh.hospitalclient.module.registration.doctor.DoctorDetailActivity;
+import com.xh.hospitalclient.module.registration.order.OrderActivity;
 import com.xh.hospitalclient.utils.GlideApp;
 
 import java.util.ArrayList;
@@ -100,6 +101,18 @@ public class ScheduleAdapter extends RecyclerView.Adapter<BaseViewHolder> {
             tvDrPos.setText(doctor.getDrPos());
             tvDrInfo.setText(doctor.getDrInfo());
             realm.close();
+
+            btnReg.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent();
+                    intent.putExtra("schId",schedule.getSchId());
+                    intent.setClass(context, OrderActivity.class);
+                    context.startActivity(intent);
+                    Log.i(TAG, "to register: " + schedule.toString());
+                }
+            });
+
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
